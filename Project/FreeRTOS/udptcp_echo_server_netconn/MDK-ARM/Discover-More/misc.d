@@ -1,0 +1,10 @@
+.\discover-more\misc.o: ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c
+.\discover-more\misc.o: ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
+.\discover-more\misc.o: C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cm4.h
+.\discover-more\misc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cmInstr.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cmFunc.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h
+.\discover-more\misc.o: C:\Keil_v5\ARM\INC\ST\STM32F4xx\system_stm32f4xx.h
+.\discover-more\misc.o: ..\inc\stm32f4xx_conf.h

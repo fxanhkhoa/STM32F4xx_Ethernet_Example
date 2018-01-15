@@ -1,0 +1,10 @@
+.\discover-more\stm32f4xx_it.o: ..\src\stm32f4xx_it.c
+.\discover-more\stm32f4xx_it.o: ..\inc\stm32f4xx_it.h
+.\discover-more\stm32f4xx_it.o: C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h
+.\discover-more\stm32f4xx_it.o: ..\..\..\..\Libraries\CMSIS\Include\core_cm4.h
+.\discover-more\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\discover-more\stm32f4xx_it.o: ..\..\..\..\Libraries\CMSIS\Include\core_cmInstr.h
+.\discover-more\stm32f4xx_it.o: ..\..\..\..\Libraries\CMSIS\Include\core_cmFunc.h
+.\discover-more\stm32f4xx_it.o: ..\..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h
+.\discover-more\stm32f4xx_it.o: C:\Keil_v5\ARM\INC\ST\STM32F4xx\system_stm32f4xx.h
+.\discover-more\stm32f4xx_it.o: ..\inc\stm32f4xx_conf.h

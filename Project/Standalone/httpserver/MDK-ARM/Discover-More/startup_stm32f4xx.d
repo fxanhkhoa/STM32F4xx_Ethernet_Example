@@ -1,0 +1,1 @@
+.\discover-more\startup_stm32f4xx.o: C:\Users\Anh Khoa\Documents\RFID door\firmware\STM32F4-master\STM32F4-master\STM32F4 Discovery Software Examples\STM32F4xx_Ethernet_Example\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f4xx.s

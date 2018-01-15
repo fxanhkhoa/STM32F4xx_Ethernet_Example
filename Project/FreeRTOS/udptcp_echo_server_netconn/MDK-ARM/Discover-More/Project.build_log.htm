@@ -1,0 +1,223 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Bui Anh Khoa, noname, LIC=CZLLQ-NPVYW-7R8X3-AKZWK-DUAXD-LB4KE
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.24.1
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
+Dialog DLL:      TCM.DLL V1.32.0.0
+ 
+<h2>Project:</h2>
+C:\Users\Anh Khoa\Documents\RFID door\firmware\STM32F4-master\STM32F4-master\STM32F4 Discovery Software Examples\STM32F4xx_Ethernet_Example\Project\FreeRTOS\udptcp_echo_server_netconn\MDK-ARM\Project.uvproj
+Project File Date:  11/09/2017
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Discover-More'
+compiling stm32f4xx_it.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\src\stm32f4xx_it.c: 0 warnings, 1 error
+compiling system_stm32f4xx.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\src\system_stm32f4xx.c: 0 warnings, 1 error
+compiling netconf.c...
+..\src\netconf.c(46): error:  #5: cannot open source input file "ethernetif.h": No such file or directory
+  #include "ethernetif.h"
+..\src\netconf.c: 0 warnings, 1 error
+compiling main.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\src\main.c: 0 warnings, 1 error
+compiling stm32f4x7_eth_bsp.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\src\stm32f4x7_eth_bsp.c: 0 warnings, 1 error
+compiling udpecho.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\src\udpecho.c: 0 warnings, 1 error
+compiling tcpecho.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\src\tcpecho.c: 0 warnings, 1 error
+compiling stm32f4xx_adc.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c: 0 warnings, 1 error
+compiling stm32f4_discovery_lcd.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.c: 0 warnings, 1 error
+compiling stm32f4_discovery.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.c: 0 warnings, 1 error
+compiling stm32f4xx_exti.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c: 0 warnings, 1 error
+compiling stm32f4xx_dma.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c: 0 warnings, 1 error
+compiling stm32f4xx_usart.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c: 0 warnings, 1 error
+compiling stm32f4xx_fsmc.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c: 0 warnings, 1 error
+compiling misc.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c: 0 warnings, 1 error
+compiling stm32f4xx_sdio.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c: 0 warnings, 1 error
+compiling stm32f4xx_rcc.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c: 0 warnings, 1 error
+compiling api_lib.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\api\api_lib.c: 0 warnings, 1 error
+compiling stm32f4xx_syscfg.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c: 0 warnings, 1 error
+compiling stm32f4xx_gpio.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c": No such file or directory
+..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c: 0 warnings, 1 error
+compiling api_msg.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\api\api_msg.c: 0 warnings, 1 error
+compiling stm32f4x7_eth.c...
+..\inc\stm32f4xx_conf.h(54): error:  #5: cannot open source input file "stm32f4xx_adc.h": No such file or directory
+  #include "stm32f4xx_adc.h"
+..\..\..\..\Libraries\STM32F4x7_ETH_Driver\src\stm32f4x7_eth.c: 0 warnings, 1 error
+compiling err.c...
+compiling netdb.c...
+compiling netbuf.c...
+compiling netifapi.c...
+compiling sockets.c...
+compiling tcpip.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\api\tcpip.c: 0 warnings, 1 error
+compiling dhcp.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\dhcp.c: 0 warnings, 1 error
+compiling dns.c...
+compiling mem.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\mem.c: 0 warnings, 1 error
+compiling memp.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\memp.c: 0 warnings, 1 error
+compiling init.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\init.c: 0 warnings, 1 error
+compiling pbuf.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\pbuf.c: 0 warnings, 1 error
+compiling netif.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\netif.c: 0 warnings, 1 error
+compiling stats.c...
+compiling raw.c...
+compiling sys.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\sys.c: 0 warnings, 1 error
+compiling tcp.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\tcp.c: 0 warnings, 1 error
+compiling tcp_in.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\tcp_in.c: 0 warnings, 1 error
+compiling igmp.c...
+compiling tcp_out.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\tcp_out.c: 0 warnings, 1 error
+compiling udp.c...
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\udp.c(57): error:  #5: cannot open source input file "lwip/inet_chksum.h": No such file or directory
+  #include "lwip/inet_chksum.h"
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\udp.c: 0 warnings, 1 error
+compiling inet.c...
+compiling autoip.c...
+compiling icmp.c...
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\icmp.c(48): error:  #5: cannot open source input file "lwip/inet_chksum.h": No such file or directory
+  #include "lwip/inet_chksum.h"
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\icmp.c: 0 warnings, 1 error
+compiling ip_addr.c...
+compiling inet_chksum.c...
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\inet_chksum.c(41): error:  #5: cannot open source input file "lwip/inet_chksum.h": No such file or directory
+  #include "lwip/inet_chksum.h"
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\inet_chksum.c: 0 warnings, 1 error
+compiling etharp.c...
+compiling ip.c...
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\ip.c(47): error:  #5: cannot open source input file "lwip/inet_chksum.h": No such file or directory
+  #include "lwip/inet_chksum.h"
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\ip.c: 0 warnings, 1 error
+compiling loopif.c...
+compiling ip_frag.c...
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\ip_frag.c(45): error:  #5: cannot open source input file "lwip/inet_chksum.h": No such file or directory
+  #include "lwip/inet_chksum.h"
+..\..\..\..\Utilities\lwip_v1.3.2\src\core\ipv4\ip_frag.c: 0 warnings, 1 error
+compiling slipif.c...
+compiling sys_arch.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\FreeRTOS\sys_arch.c": No such file or directory
+..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\FreeRTOS\sys_arch.c: 0 warnings, 1 error
+compiling ethernetif.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\FreeRTOS\ethernetif.c": No such file or directory
+..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\FreeRTOS\ethernetif.c: 0 warnings, 1 error
+compiling croutine.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\croutine.c: 0 warnings, 1 error
+compiling port.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\Utilities\FreeRTOS_v6.1.0\portable\MDK-ARM\ARM_CM3\port.c": No such file or directory
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\portable\MDK-ARM\ARM_CM3\port.c: 0 warnings, 1 error
+compiling queue.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\queue.c: 0 warnings, 1 error
+compiling tasks.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\tasks.c: 0 warnings, 1 error
+compiling list.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\list.c: 0 warnings, 1 error
+assembling startup_stm32f4xx.s...
+compiling heap_2.c...
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h(307): error:  #5: cannot open source input file "portmacro.h": No such file or directory
+  	#include "portmacro.h"	
+..\..\..\..\Utilities\FreeRTOS_v6.1.0\portable\MemMang\heap_2.c: 0 warnings, 1 error
+".\Discover-More\Project.axf" - 34 Error(s), 0 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:07
+</pre>
+</body>
+</html>

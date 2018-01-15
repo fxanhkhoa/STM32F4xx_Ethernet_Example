@@ -1,0 +1,16 @@
+.\discover-more\tcpecho.o: ..\src\tcpecho.c
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/opt.h
+.\discover-more\tcpecho.o: ..\inc\lwipopts.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/debug.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/arch.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\arch/cc.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\arch/cpu.h
+.\discover-more\tcpecho.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/sys.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/err.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\arch/sys_arch.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\FreeRTOS.h
+.\discover-more\tcpecho.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\projdefs.h
+.\discover-more\tcpecho.o: ..\inc\FreeRTOSConfig.h
+.\discover-more\tcpecho.o: ..\..\..\..\Utilities\FreeRTOS_v6.1.0\include\portable.h
