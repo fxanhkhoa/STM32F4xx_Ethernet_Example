@@ -44,6 +44,8 @@ struct tcp_pcb *tcp_for_global;
 char* str_data;
 uint8_t str_len;
 
+//extern uint8_t DEST_PORT = 6;
+
 __IO u8_t Tcp_flag = 0;
 
 struct tcp_pcb *echoclient_pcb;
@@ -86,6 +88,11 @@ struct tcp_pcb* get_tcp_pcb()
 char* get_data(void)
 {
 	return str_data;
+}
+
+void clear_data(void)
+{
+	str_data = "";
 }
 
 /**

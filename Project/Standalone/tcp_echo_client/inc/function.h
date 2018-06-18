@@ -16,10 +16,9 @@ extern "C" {
 	
 #define NUMBER_OF_BLOCK 20
 	
-extern uint8_t quantity;	
+extern uint16_t quantity;	
 extern uint32_t time;
 extern char _read;
-extern char s1[40];
 extern uint8_t pos1;
 	
 /******* Prototype of Function *******/	

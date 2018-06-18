@@ -70,7 +70,7 @@ uint32_t time = 0;
 char _read = 1;
 char mode = NONE;
 uint16_t number;
-uint8_t quantity;
+uint16_t quantity = 0;
 
 char Conn_use = 0;
 
@@ -92,7 +92,22 @@ int main(void)
        To reconfigure the default setting of SystemInit() function, refer to
        system_stm32f4xx.c file
      */
-  
+  /* Variables */
+	char temp[4];
+	char i;
+	
+	/* Get Destination IP Address & Port */
+	// IP Address 4 bytes
+	/*DEST_IP_ADDR0 = EEPROM_readByte(0x0009);
+	DEST_IP_ADDR1 = EEPROM_readByte(0x0010);
+	DEST_IP_ADDR2 = EEPROM_readByte(0x0011);
+	DEST_IP_ADDR3 = EEPROM_readByte(0x0012);*/
+	// Port 1 byte
+	//DEST_PORT_n = EEPROM_readByte(0x0013);
+	
+	/* Get Quantity 8 high bits(0x0014) and 8 high bits (0x0015)*/
+	quantity = (EEPROM_readByte(0x0014) << 8) | (EEPROM_readByte(0x0015));
+	
   /*Initialize LCD and Leds */ 
   LCD_LED_BUTTON_Init();
   
@@ -118,6 +133,10 @@ int main(void)
       tcp_echoclient_connect();   
 			tcp_write(get_tcp_pcb(), "aaaa", 4, 1);
     }
+		
+		// Get AT Mode
+		mode = CheckAT(get_data());
+		clear_data(); // Clear Read data
 		
 		
   }   

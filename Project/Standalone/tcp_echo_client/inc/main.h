@@ -66,12 +66,18 @@
 #define USE_LCD        /* enable LCD  */  
 #define USE_DHCP       /* enable DHCP, if disabled static address is used */
 
+/*
 #define DEST_IP_ADDR0   192
 #define DEST_IP_ADDR1   168
 #define DEST_IP_ADDR2   1
 #define DEST_IP_ADDR3   11
+*/
 
-#define DEST_PORT       7
+static uint8_t DEST_IP_ADDR0,DEST_IP_ADDR1,DEST_IP_ADDR2,DEST_IP_ADDR3;
+static uint8_t DEST_PORT = 7;
+
+//#define DEST_PORT       7
+
 
 /* MAC ADDRESS: MAC_ADDR0:MAC_ADDR1:MAC_ADDR2:MAC_ADDR3:MAC_ADDR4:MAC_ADDR5 */
 #define MAC_ADDR0   2

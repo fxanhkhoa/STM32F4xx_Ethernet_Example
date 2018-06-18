@@ -114,8 +114,8 @@ char Check_Open_Door(char *s)
 		
 		if ((strstr(s, ID) != NULL)) 
 		{
-			strcpy(s1,"OK+OPEN+");
-			for (i = 0; i < 9; i ++) s1[8+i] = ID[i];
+			/*strcpy(s1,"OK+OPEN+");
+			for (i = 0; i < 9; i ++) s1[8+i] = ID[i];*/
 			U_Print_Char(USART1, "OK+OPEN+");
 			U_Print_Char(USART1, ID);
 			flag = 1;
