@@ -29,6 +29,8 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void tcp_echoclient_connect(void);
+struct tcp_pcb* get_tcp_pcb();
+char* get_data(void);
 
 #endif /* __TCP_ECHOCLIENT_H__ */
 

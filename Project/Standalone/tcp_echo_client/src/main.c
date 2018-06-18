@@ -62,6 +62,18 @@ __IO uint32_t LocalTime = 0; /* this variable is used to create a time reference
 uint32_t timingdelay;
 uint32_t Button_TimerBack;
 __IO uint32_t Button_Flag;
+
+uint32_t time = 0;
+//char s[40], s1[40]; uint8_t pos,pos1 = 0; // Use for USART
+
+
+char _read = 1;
+char mode = NONE;
+uint16_t number;
+uint8_t quantity;
+
+char Conn_use = 0;
+
 /* Private function prototypes -----------------------------------------------*/
 void LCD_LED_BUTTON_Init(void);
 uint8_t Button_State(void);
@@ -104,7 +116,10 @@ int main(void)
     if (Button_State()) {
       /*connect to tcp server */ 
       tcp_echoclient_connect();   
+			tcp_write(get_tcp_pcb(), "aaaa", 4, 1);
     }
+		
+		
   }   
 }
 /**

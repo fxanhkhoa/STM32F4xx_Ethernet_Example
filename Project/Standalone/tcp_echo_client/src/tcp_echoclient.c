@@ -40,6 +40,10 @@ __IO uint32_t message_count=0;
 
 u8_t   data[100];
 
+struct tcp_pcb *tcp_for_global;
+char* str_data;
+uint8_t str_len;
+
 __IO u8_t Tcp_flag = 0;
 
 struct tcp_pcb *echoclient_pcb;
@@ -74,6 +78,15 @@ static err_t tcp_echoclient_connected(void *arg, struct tcp_pcb *tpcb, err_t err
 
 /* Private functions ---------------------------------------------------------*/
 
+struct tcp_pcb* get_tcp_pcb()
+{
+	return tcp_for_global;
+}
+
+char* get_data(void)
+{
+	return str_data;
+}
 
 /**
   * @brief  Connects to the TCP echo server
@@ -105,7 +118,9 @@ void tcp_echoclient_connect(void)
 static err_t tcp_echoclient_connected(void *arg, struct tcp_pcb *tpcb, err_t err)
 {
   struct echoclient *es = NULL;
-  
+	// Get tcp_pcb global
+	tcp_for_global = tpcb;
+	
   if (err == ERR_OK) {
     /* allocate structure es to maintain tcp connection informations */
     es = (struct echoclient *)mem_malloc(sizeof(struct echoclient));
@@ -136,7 +151,7 @@ static err_t tcp_echoclient_connected(void *arg, struct tcp_pcb *tpcb, err_t err
         tcp_poll(tpcb, tcp_echoclient_poll, 1);
     
         /* send data */
-        tcp_echoclient_send(tpcb,es);
+        //tcp_echoclient_send(tpcb,es); // Dont send
         
         return ERR_OK;
       }
@@ -165,11 +180,23 @@ static err_t tcp_echoclient_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
 { 
   struct echoclient *es;
   err_t ret_err;
-  
+	char i;
+	char *tempPtr;
+
+	// Get tcp_pcb global
+	tcp_for_global = tpcb;
 
   LWIP_ASSERT("arg != NULL",arg != NULL);
   
   es = (struct echoclient *)arg;
+	
+	//Get data to a variable
+	tempPtr = (char*)p->payload;
+	
+	//for (i = 0 ; i < (p->len); i++) s1[i] =(char) *(tempPtr++);
+	str_data = tempPtr;
+	str_len = p->len;
+	
   Tcp_flag = 0;
   /* if we receive an empty tcp frame from server => close connection */
   if (p == NULL) {
@@ -225,7 +252,10 @@ static void tcp_echoclient_send(struct tcp_pcb *tpcb, struct echoclient * es)
 {
   struct pbuf *ptr;
   err_t wr_err = ERR_OK;
- 
+	
+	// Get tcp_pcb global
+	tcp_for_global = tpcb;
+	
   while ((wr_err == ERR_OK) &&
          (es->p_tx != NULL) && 
          (es->p_tx->len <= tcp_sndbuf(tpcb)))
@@ -267,7 +297,10 @@ static err_t tcp_echoclient_poll(void *arg, struct tcp_pcb *tpcb)
 {
   err_t ret_err;
   struct echoclient *es;
-
+	
+	// Get tcp_pcb global
+	tcp_for_global = tpcb;
+	
   es = (struct echoclient*)arg;
   if (es != NULL) {
     if (es->p_tx != NULL) {
@@ -301,6 +334,9 @@ static err_t tcp_echoclient_sent(void *arg, struct tcp_pcb *tpcb, u16_t len)
 {
   struct echoclient *es;
 
+	// Get tcp_pcb global
+	tcp_for_global = tpcb;
+	
   LWIP_UNUSED_ARG(len);
 
   es = (struct echoclient *)arg;
@@ -326,6 +362,7 @@ static void tcp_echoclient_connection_close(struct tcp_pcb *tpcb, struct echocli
   tcp_recv(tpcb, NULL);
   tcp_sent(tpcb, NULL);
   tcp_poll(tpcb, NULL,0);
+	
 
   if (es != NULL) {
     mem_free(es);

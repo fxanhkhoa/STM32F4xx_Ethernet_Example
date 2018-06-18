@@ -54,16 +54,21 @@
 #include "stm32f4xx.h"
 #include "stm32f4x7_eth_bsp.h"
 #include "stm32f4_discovery_lcd.h"
+	 
+#include "U_Print.h"
+#include "AT_Command.h"
+#include "25lc256.h"
+#include "function.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
 #define USE_LCD        /* enable LCD  */  
-//#define USE_DHCP       /* enable DHCP, if disabled static address is used */
+#define USE_DHCP       /* enable DHCP, if disabled static address is used */
 
 #define DEST_IP_ADDR0   192
 #define DEST_IP_ADDR1   168
-#define DEST_IP_ADDR2   0
+#define DEST_IP_ADDR2   1
 #define DEST_IP_ADDR3   11
 
 #define DEST_PORT       7

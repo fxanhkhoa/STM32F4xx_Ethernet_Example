@@ -10,6 +10,7 @@
       <TargetName>Discover-More</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -49,7 +50,7 @@
           <OutputName>Project</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Discover-More\</ListingPath>
@@ -138,17 +139,17 @@
           <Target>
             <UseTarget>1</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
-            <RunToMain>1</RunToMain>
+            <RunToMain>0</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
             <RestoreWatchpoints>1</RestoreWatchpoints>
             <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
             <RestoreFunctions>0</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
-            <RestoreTracepoints>0</RestoreTracepoints>
+            <RestoreTracepoints>1</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>-1</TargetSelection>
+          <TargetSelection>11</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -162,7 +163,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>STLink\ST-LINKIII-KEIL.dll</Driver>
+            <Driver>STLink\ST-LINKIII-KEIL_SWO.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -172,10 +173,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4100</DriverSelection>
+            <DriverSelection>4103</DriverSelection>
           </Flash1>
           <bUseTDR>0</bUseTDR>
-          <Flash2>STLink\ST-LINKIII-KEIL.dll</Flash2>
+          <Flash2>STLink\ST-LINKIII-KEIL_SWO.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -448,6 +449,26 @@
               <FileType>1</FileType>
               <FilePath>..\src\stm32f4x7_eth_bsp.c</FilePath>
             </File>
+            <File>
+              <FileName>function.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\function.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>25lc256.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\25lc256.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AT_Command.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\AT_Command.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>U_Print.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\U_Print.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -517,6 +538,26 @@
               <FileName>stm32f4xx_syscfg.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_wwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c</FilePath>
             </File>
           </Files>
         </Group>
