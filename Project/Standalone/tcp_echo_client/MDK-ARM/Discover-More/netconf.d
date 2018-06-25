@@ -69,4 +69,5 @@
 .\discover-more\netconf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\discover-more\netconf.o: ..\inc\25lc256.h
 .\discover-more\netconf.o: ..\inc\function.h
+.\discover-more\netconf.o: ..\inc\main.h
 .\discover-more\netconf.o: ..\inc\netconf.h

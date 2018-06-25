@@ -66,3 +66,4 @@
 .\discover-more\tcp_echoclient.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\discover-more\tcp_echoclient.o: ..\inc\25lc256.h
 .\discover-more\tcp_echoclient.o: ..\inc\function.h
+.\discover-more\tcp_echoclient.o: ..\inc\main.h

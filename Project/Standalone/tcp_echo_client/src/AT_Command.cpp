@@ -2,6 +2,15 @@
 
 /***** Variables *****/
 
+/*
+Name: CheckAT
+
+Description: Use this function to check AT command
+
+Input: String for checking
+
+Output: Number of Mode defined in AT_Command.h
+*/
 char CheckAT(char *s)
 {
 	//strcpy(RFID_ID[0].ADDR,"B0562917");

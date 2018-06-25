@@ -48,3 +48,4 @@
 .\discover-more\stm32f4x7_eth_bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\discover-more\stm32f4x7_eth_bsp.o: ..\inc\25lc256.h
 .\discover-more\stm32f4x7_eth_bsp.o: ..\inc\function.h
+.\discover-more\stm32f4x7_eth_bsp.o: ..\inc\main.h

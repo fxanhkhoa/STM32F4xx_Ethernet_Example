@@ -12,14 +12,13 @@ extern "C" {
 #include "U_Print.h"
 #include "string.h"
 #include "AT_Command.h"
+#include "main.h"
 
 	
-#define NUMBER_OF_BLOCK 20
+#define NUMBER_OF_BLOCK 8
+#define START_OF_RFID_USER 0x0016
 	
-extern uint16_t quantity;	
 extern uint32_t time;
-extern char _read;
-extern uint8_t pos1;
 	
 /******* Prototype of Function *******/	
 void OpenDoor(int number);
@@ -29,7 +28,7 @@ void CloseDoor(int number);
 char * IDADD_READ_RFID(char *s);
 char * IDADD_READ_TIME(char *s);
 char * IDADD_READ_DOOR(char *s);
-char Check_Open_Door(char *s);
+char CheckOpenDoor(char *s);
 void ID_DEL(char *ID_IN);
 	
 #ifdef __cplusplus

@@ -70,28 +70,26 @@
 #define DEST_IP_ADDR0   192
 #define DEST_IP_ADDR1   168
 #define DEST_IP_ADDR2   1
-#define DEST_IP_ADDR3   11
+#define DEST_IP_ADDR3   7
 */
 
-static uint8_t DEST_IP_ADDR0,DEST_IP_ADDR1,DEST_IP_ADDR2,DEST_IP_ADDR3;
-static uint8_t DEST_PORT = 7;
 
 //#define DEST_PORT       7
 
 
 /* MAC ADDRESS: MAC_ADDR0:MAC_ADDR1:MAC_ADDR2:MAC_ADDR3:MAC_ADDR4:MAC_ADDR5 */
 #define MAC_ADDR0   2
-#define MAC_ADDR1   0
-#define MAC_ADDR2   0
-#define MAC_ADDR3   0
+#define MAC_ADDR1   5
+#define MAC_ADDR2   1
+#define MAC_ADDR3   128
 #define MAC_ADDR4   0
 #define MAC_ADDR5   0
  
 /*Static IP ADDRESS: IP_ADDR0.IP_ADDR1.IP_ADDR2.IP_ADDR3 */
 #define IP_ADDR0   192
 #define IP_ADDR1   168
-#define IP_ADDR2   0
-#define IP_ADDR3   10
+#define IP_ADDR2   1
+#define IP_ADDR3   200
    
 /*NETMASK*/
 #define NETMASK_ADDR0   255
@@ -102,17 +100,27 @@ static uint8_t DEST_PORT = 7;
 /*Gateway Address*/
 #define GW_ADDR0   192
 #define GW_ADDR1   168
-#define GW_ADDR2   0
+#define GW_ADDR2   1
 #define GW_ADDR3   1  
 
 /* MII and RMII mode selection, for STM324xG-EVAL Board(MB786) RevB ***********/
-#define RMII_MODE                  
+#define RMII_MODE          
+
+// define some other mode
+#define NONE 1
+//#define ID   2
+#define DS1307 99
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */  
 void Time_Update(void);
 void Delay(uint32_t nCount);
-
+uint8_t GetPort(void);
+uint8_t GetIPADDR0(void);
+uint8_t GetIPADDR1(void);
+uint8_t GetIPADDR2(void);
+uint8_t GetIPADDR3(void);
+uint16_t GetQuantity(void);
 
 #ifdef __cplusplus
 }

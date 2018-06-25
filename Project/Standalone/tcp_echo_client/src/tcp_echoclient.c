@@ -28,6 +28,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <string.h>
+#include "25lc256.h"
 
 #if LWIP_TCP
 /* Private typedef -----------------------------------------------------------*/
@@ -43,6 +44,7 @@ u8_t   data[100];
 struct tcp_pcb *tcp_for_global;
 char* str_data;
 uint8_t str_len;
+
 
 //extern uint8_t DEST_PORT = 6;
 
@@ -109,10 +111,10 @@ void tcp_echoclient_connect(void)
        
   if (echoclient_pcb != NULL) {
     Tcp_flag = 1;
-    IP4_ADDR( &DestIPaddr, DEST_IP_ADDR0, DEST_IP_ADDR1, DEST_IP_ADDR2, DEST_IP_ADDR3 );
-       
+    IP4_ADDR( &DestIPaddr, GetIPADDR0(), GetIPADDR1(), GetIPADDR2(), GetIPADDR3() );
+		
     /* connect to destination address/port */
-    tcp_connect(echoclient_pcb,&DestIPaddr,DEST_PORT,tcp_echoclient_connected);
+    tcp_connect(echoclient_pcb,&DestIPaddr,GetPort(),tcp_echoclient_connected);
   }
 }
 

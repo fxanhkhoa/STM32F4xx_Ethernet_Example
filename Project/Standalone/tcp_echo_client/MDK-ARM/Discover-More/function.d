@@ -41,3 +41,9 @@
 .\discover-more\function.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\discover-more\function.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\discover-more\function.o: ..\inc\AT_Command.h
+.\discover-more\function.o: ..\inc\main.h
+.\discover-more\function.o: ..\inc\stm32f4x7_eth_bsp.h
+.\discover-more\function.o: ..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.h
+.\discover-more\function.o: ..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h
+.\discover-more\function.o: ..\..\..\..\Utilities\STM32F4-Discovery\fonts.h
+.\discover-more\function.o: ..\inc\function.h

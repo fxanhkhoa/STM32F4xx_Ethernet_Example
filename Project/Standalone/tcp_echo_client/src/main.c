@@ -64,8 +64,12 @@ uint32_t Button_TimerBack;
 __IO uint32_t Button_Flag;
 
 uint32_t time = 0;
+uint8_t DEST_PORT;
+uint8_t DEST_IP_ADDR0;
+uint8_t DEST_IP_ADDR1;
+uint8_t DEST_IP_ADDR2;
+uint8_t DEST_IP_ADDR3;
 //char s[40], s1[40]; uint8_t pos,pos1 = 0; // Use for USART
-
 
 char _read = 1;
 char mode = NONE;
@@ -77,6 +81,7 @@ char Conn_use = 0;
 /* Private function prototypes -----------------------------------------------*/
 void LCD_LED_BUTTON_Init(void);
 uint8_t Button_State(void);
+void Init_peripheral();
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -93,20 +98,10 @@ int main(void)
        system_stm32f4xx.c file
      */
   /* Variables */
-	char temp[4];
+	char s[40];
 	char i;
 	
-	/* Get Destination IP Address & Port */
-	// IP Address 4 bytes
-	/*DEST_IP_ADDR0 = EEPROM_readByte(0x0009);
-	DEST_IP_ADDR1 = EEPROM_readByte(0x0010);
-	DEST_IP_ADDR2 = EEPROM_readByte(0x0011);
-	DEST_IP_ADDR3 = EEPROM_readByte(0x0012);*/
-	// Port 1 byte
-	//DEST_PORT_n = EEPROM_readByte(0x0013);
-	
-	/* Get Quantity 8 high bits(0x0014) and 8 high bits (0x0015)*/
-	quantity = (EEPROM_readByte(0x0014) << 8) | (EEPROM_readByte(0x0015));
+	Init_peripheral();
 	
   /*Initialize LCD and Leds */ 
   LCD_LED_BUTTON_Init();
@@ -116,7 +111,36 @@ int main(void)
     
   /* Initilaize the LwIP stack */
   LwIP_Init();
-      
+	
+	Init_peripheral();
+	/*
+	EEPROM_writeByte(0x0009,192);
+	Delay(10);
+	EEPROM_writeByte(0x0010,168);
+	Delay(10);
+	EEPROM_writeByte(0x0011,1);
+	Delay(10);
+	EEPROM_writeByte(0x0012,7);
+	Delay(10);
+	EEPROM_writeByte(0x0013,35);
+	Delay(10);
+	*/
+	led_toggle();
+	
+	
+	/* Get Destination IP Address & Port */
+	// IP Address 4 bytes
+	DEST_IP_ADDR0 = EEPROM_readByte(0x0009);
+	DEST_IP_ADDR1 = EEPROM_readByte(0x0010);
+	DEST_IP_ADDR2 = EEPROM_readByte(0x0011);
+	DEST_IP_ADDR3 = EEPROM_readByte(0x0012);
+	// Port 1 byte
+	DEST_PORT = EEPROM_readByte(0x0013);
+	//DEST_PORT = 35;
+	
+	/* Get Quantity 8 high bits(0x0014) and 8 high bits (0x0015)*/
+	quantity = (EEPROM_readByte(0x0014) << 8) | (EEPROM_readByte(0x0015));
+
   /* Infinite loop */
   while (1)
   {  
@@ -127,19 +151,252 @@ int main(void)
     }
     /* handle periodic timers for LwIP */
     LwIP_Periodic_Handle(LocalTime);
-    
+		
     if (Button_State()) {
       /*connect to tcp server */ 
-      tcp_echoclient_connect();   
-			tcp_write(get_tcp_pcb(), "aaaa", 4, 1);
+			tcp_echoclient_connect(); //Must put in here
+			//tcp_write(get_tcp_pcb(), "aaaa", 4, 1);
     }
 		
+		strcpy(s,get_data()); // copy data to s
 		// Get AT Mode
 		mode = CheckAT(get_data());
 		clear_data(); // Clear Read data
 		
-		
+		if (mode == NONE)
+		{
+			
+		}
+		/* Check RFID, Time, Door */
+		else if (mode == IDCHECK)
+		{
+			char temps[9];
+			memcpy(temps, &get_data()[10], 8); // Copy from 10 to 18 of string input
+			temps[8] = '\0';
+			
+			mode = CheckOpenDoor(get_data());
+		}
+		else if (mode == DS1307)
+		{
+			GPIO_SetBits(GPIOD,GPIO_Pin_15);
+			OpenDoor(0);
+		}
+		else if (mode == OPEN1)
+		{
+			
+		}
+		else if (mode == OPEN2)
+		{
+			
+		}
+		else if (mode == OPEN3)
+		{
+			
+		}
+		else if (mode == OPEN4)
+		{
+			
+		}
   }   
+}
+
+void Init_peripheral()
+{
+	GPIO_InitTypeDef GPIO,GPIO_InitStruct;
+	USART_InitTypeDef USART;
+	NVIC_InitTypeDef NVIC_InitStructure;
+	TIM_TimeBaseInitTypeDef TIMER;
+	SPI_InitTypeDef SPI_InitStruct;
+	
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,	ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOB, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI3, ENABLE);
+	
+	/*---- GPIO Init ----*/
+
+	GPIO.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOD, &GPIO);
+
+	GPIO.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOE, &GPIO);
+	
+	/*---- Relay GPIO Init ----*/
+	
+	
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_USART2);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_USART2);
+	
+	GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_USART1);
+	GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_USART1);
+	
+	/*---- PB6-TX, PB7-RX, PD5-TX, PD6-RX ----*/
+	GPIO.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
+	GPIO.GPIO_Mode = GPIO_Mode_AF;
+	GPIO.GPIO_OType = GPIO_OType_PP;
+	GPIO.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOD, &GPIO);
+	
+	GPIO.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
+	GPIO.GPIO_Mode = GPIO_Mode_AF;
+	GPIO.GPIO_OType = GPIO_OType_PP;
+	GPIO.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOB, &GPIO);
+	
+	/*GPIO.GPIO_Pin = GPIO_Pin_10;
+	GPIO.GPIO_Mode = GPIO_Mode_IN;
+	GPIO.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOA, &GPIO);*/
+	
+	/*---- Timer Init ----*/
+	// Timer 4 -----> Max 50Mhz
+	
+	TIMER.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIMER.TIM_Prescaler = 1000;
+	TIMER.TIM_CounterMode = TIM_CounterMode_Up;
+	TIMER.TIM_Period = 2-1;
+	TIMER.TIM_RepetitionCounter = 0;
+	TIM_TimeBaseInit(TIM4, &TIMER);
+	TIM_Cmd(TIM4, ENABLE);
+	TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
+	
+	/*---- USART Init ----*/
+
+	USART.USART_BaudRate = 9600;
+	USART.USART_StopBits = USART_StopBits_1;
+	USART.USART_Parity = USART_Parity_No;
+	USART.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+	USART.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+	USART.USART_WordLength = USART_WordLength_8b;
+	USART_Init(USART2, &USART);
+	
+	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE); // enable the USART1 receive interrupt 
+	USART_Cmd(USART2, ENABLE);
+	
+	USART.USART_BaudRate = 115200;
+	USART.USART_StopBits = USART_StopBits_1;
+	USART.USART_Parity = USART_Parity_No;
+	USART.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+	USART.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+	USART.USART_WordLength = USART_WordLength_8b;
+	USART_Init(USART1, &USART);
+	
+	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); // enable the USART1 receive interrupt 
+	USART_Cmd(USART1, ENABLE);
+	
+	/*---- SPI Init ----*/
+	/* configure pins used by SPI1
+	 * PC10 = SCK
+	 * PC11 = MISO
+	 * PC12 = MOSI
+	 */
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOC, &GPIO_InitStruct);
+	
+	// connect SPI1 pins to SPI alternate function
+	GPIO_PinAFConfig(GPIOC, GPIO_PinSource10, GPIO_AF_SPI3);
+	GPIO_PinAFConfig(GPIOC, GPIO_PinSource11, GPIO_AF_SPI3);
+	GPIO_PinAFConfig(GPIOC, GPIO_PinSource12, GPIO_AF_SPI3);
+	
+	// Chip Select Pin
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_15;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOA, &GPIO_InitStruct);
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_15);
+	
+	
+	SPI_InitStruct.SPI_Direction = SPI_Direction_2Lines_FullDuplex; // set to full duplex mode, seperate MOSI and MISO lines
+	SPI_InitStruct.SPI_Mode = SPI_Mode_Master;     // transmit in master mode, NSS pin has to be always high
+	SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b; // one packet of data is 8 bits wide
+	SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low;        // clock is low when idle
+	SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge;      // data sampled at first edge
+	SPI_InitStruct.SPI_NSS = SPI_NSS_Soft | SPI_NSSInternalSoft_Set; // set the NSS management to internal and pull internal NSS high
+	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4; // SPI frequency is APB2 frequency / 4
+	SPI_InitStruct.SPI_FirstBit = SPI_FirstBit_MSB;// data is transmitted MSB first
+	SPI_Init(SPI3, &SPI_InitStruct); 
+	
+	SPI_Cmd(SPI3, ENABLE); // enable SPI1
+	
+	
+	/*----- NVIC Timer interrupt -----*/
+	
+	NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+	
+	/*----- NVIC USART2 interrupt -----*/
+	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+	
+	/*----- NVIC USART1 interrupt -----*/
+	if (Conn_use == 1){
+	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+	}
+}
+
+uint8_t GetPort(void) {return DEST_PORT;}
+uint8_t GetIPADDR0(void) {return DEST_IP_ADDR0;}
+uint8_t GetIPADDR1(void) {return DEST_IP_ADDR1;}
+uint8_t GetIPADDR2(void) {return DEST_IP_ADDR2;}
+uint8_t GetIPADDR3(void) {return DEST_IP_ADDR3;}
+uint16_t GetQuantity(void) {return quantity;}
+
+void USART1_IRQHandler(void)
+{
+	// check if the USART1 receive interrupt flag was set
+	if( USART_GetITStatus(USART1, USART_IT_RXNE) )
+		{
+			
+		}
+}
+
+void USART2_IRQHandler(void)
+{
+	// check if the USART1 receive interrupt flag was set
+	if( USART_GetITStatus(USART2, USART_IT_RXNE) )
+		{
+			GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
+			
+		}
+}
+
+void TIM4_IRQHandler()
+{
+    if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET)
+    {
+        TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+				//time_now ++;
+				time++;
+        //led_toggle();
+    }
 }
 /**
   * @brief  Button state.

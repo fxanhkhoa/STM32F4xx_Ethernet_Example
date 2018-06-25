@@ -49,6 +49,7 @@
 .\discover-more\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\discover-more\main.o: ..\inc\25lc256.h
 .\discover-more\main.o: ..\inc\function.h
+.\discover-more\main.o: ..\inc\main.h
 .\discover-more\main.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/tcp.h
 .\discover-more\main.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/opt.h
 .\discover-more\main.o: ..\inc\lwipopts.h

@@ -6,7 +6,7 @@ extern "C" {
 #endif
 	
 #define NONE 1
-#define IDCHECK   2
+#define IDCHECK   2 //Kiem tra ID + Time + DOOR
 #define OPEN1 3
 #define OPEN2 4
 #define OPEN3 5
