@@ -87,6 +87,16 @@ struct tcp_pcb* get_tcp_pcb()
 	return tcp_for_global;
 }
 
+uint8_t get_strlen(void)
+{
+	return str_len;
+}
+
+void set_strlen(uint8_t len)
+{
+	str_len = len;
+}
+
 char* get_data(void)
 {
 	return str_data;
@@ -206,6 +216,7 @@ static err_t tcp_echoclient_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
 	str_data = tempPtr;
 	str_len = p->len;
 	
+	tcp_write(tpcb, str_data, str_len, 1);
   Tcp_flag = 0;
   /* if we receive an empty tcp frame from server => close connection */
   if (p == NULL) {
@@ -213,7 +224,7 @@ static err_t tcp_echoclient_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
     es->state = ES_CLOSING;
     if (es->p_tx == NULL) {
        /* we're done sending, close connection */
-       tcp_echoclient_connection_close(tpcb, es);
+       //tcp_echoclient_connection_close(tpcb, es); //Must be turned off
     } else {    
       /* send remaining data*/
       tcp_echoclient_send(tpcb, es);
@@ -234,7 +245,7 @@ static err_t tcp_echoclient_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
     tcp_recved(tpcb, p->tot_len);  
     
     pbuf_free(p);
-    tcp_echoclient_connection_close(tpcb, es);
+    //tcp_echoclient_connection_close(tpcb, es); //Must be turned off
     ret_err = ERR_OK;
   }
 

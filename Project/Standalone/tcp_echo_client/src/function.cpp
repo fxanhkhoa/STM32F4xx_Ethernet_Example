@@ -138,19 +138,30 @@ char CheckOpenDoor(char *s)
 	int i,flag = 0;
 	char ID[5];
 	char *RFID = new char[5];
+	char door;
+	char day;
+	char hour;
+	char minute;
 	uint16_t quantity = GetQuantity();
 	outPutText[0] = '\0';
 	for (i = 0; i < quantity; i++)
 	{
+		// Check ID
 		for (int j = 0; j < 4; j++)
 		{
 			ID[j] = (char)EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + j);
 		}
-		
-		//ID[8] = (char)EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 7 + 11 + 1);
 		ID[4] = '\0';
 		//U_Print_Char(USART1, ID);
 		//U_Print_Char(USART1, "\n");
+		
+		/* Check door*/
+		door = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 4);
+		// Check day
+		day = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 5);
+		// Check time
+		hour = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 6);
+		minute = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 7);
 		
 		if ((strstr(s, ID) != NULL)) // if ID in s
 		{
@@ -159,11 +170,6 @@ char CheckOpenDoor(char *s)
 			//for (i = 0; i < 9; i ++) s1[8+i] = ID[i];*/
 			U_Print_Char(USART1, "OK+OPEN+");
 			U_Print_Char(USART1, ID);
-			// Check ID
-			RFID = IDADD_READ_RFID(s);
-			// Check door
-			// Check time
-			// Check day
 			flag = 1;
 			break;
 		}

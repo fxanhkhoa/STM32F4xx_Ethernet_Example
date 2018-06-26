@@ -158,10 +158,15 @@ int main(void)
 			//tcp_write(get_tcp_pcb(), "aaaa", 4, 1);
     }
 		
+		
 		strcpy(s,get_data()); // copy data to s
 		// Get AT Mode
-		mode = CheckAT(get_data());
-		clear_data(); // Clear Read data
+		if (get_strlen() > 0)
+		{
+			mode = CheckAT(get_data());
+			clear_data(); // Clear Read data
+			set_strlen(0); // Set strlen = 0
+		}
 		
 		if (mode == NONE)
 		{
@@ -183,7 +188,10 @@ int main(void)
 		}
 		else if (mode == OPEN1)
 		{
-			
+			OpenDoor(0);
+			Delay(5000);
+			CloseDoor(0);
+			mode = NONE;
 		}
 		else if (mode == OPEN2)
 		{

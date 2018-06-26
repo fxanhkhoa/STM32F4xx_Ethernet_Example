@@ -31,7 +31,9 @@
 void tcp_echoclient_connect(void);
 struct tcp_pcb* get_tcp_pcb();
 char* get_data(void);
+uint8_t get_strlen(void);
 void clear_data(void);
+void set_strlen(uint8_t len);
 
 #endif /* __TCP_ECHOCLIENT_H__ */
 

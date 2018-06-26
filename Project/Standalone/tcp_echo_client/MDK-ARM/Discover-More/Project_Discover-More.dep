@@ -1,5 +1,5 @@
 Dependencies for Project 'Project', Target 'Discover-More': (DO NOT MODIFY !)
-F (..\src\main.c)(0x5B311293)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\main.o --omf_browse .\discover-more\main.crf --depend .\discover-more\main.d)
+F (..\src\main.c)(0x5B3276D9)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\main.o --omf_browse .\discover-more\main.crf --depend .\discover-more\main.d)
 I (..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h)(0x520D43D2)
 I (..\inc\stm32f4x7_eth_conf.h)(0x520D43D2)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
@@ -48,7 +48,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
 I (..\inc\AT_Command.h)(0x5B2BDD80)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
-I (..\inc\function.h)(0x5B31163E)
+I (..\inc\function.h)(0x5B311B79)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/tcp.h)(0x5B235663)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/opt.h)(0x520D43D2)
 I (..\inc\lwipopts.h)(0x520D43D2)
@@ -66,7 +66,7 @@ I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/ip_addr.h)(0x520D43D2
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/inet.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/netif.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/icmp.h)(0x520D43D2)
-I (..\inc\tcp_echoclient.h)(0x5B27D1C4)
+I (..\inc\tcp_echoclient.h)(0x5B3272F8)
 F (..\src\system_stm32f4xx.c)(0x520D43D2)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\system_stm32f4xx.o --omf_browse .\discover-more\system_stm32f4xx.crf --depend .\discover-more\system_stm32f4xx.d)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
 I (..\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x520D43D2)
@@ -149,9 +149,9 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
 I (..\inc\AT_Command.h)(0x5B2BDD80)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
-I (..\inc\function.h)(0x5B31163E)
-I (..\inc\tcp_echoclient.h)(0x5B27D1C4)
-F (..\src\tcp_echoclient.c)(0x5B2FC43F)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\tcp_echoclient.o --omf_browse .\discover-more\tcp_echoclient.crf --depend .\discover-more\tcp_echoclient.d)
+I (..\inc\function.h)(0x5B311B79)
+I (..\inc\tcp_echoclient.h)(0x5B3272F8)
+F (..\src\tcp_echoclient.c)(0x5B327678)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\tcp_echoclient.o --omf_browse .\discover-more\tcp_echoclient.crf --depend .\discover-more\tcp_echoclient.d)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/debug.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/arch.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\arch/cc.h)(0x520D43D2)
@@ -217,7 +217,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (..\inc\AT_Command.h)(0x5B2BDD80)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
-I (..\inc\function.h)(0x5B31163E)
+I (..\inc\function.h)(0x5B311B79)
 F (..\src\netconf.c)(0x520D43D2)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\netconf.o --omf_browse .\discover-more\netconf.crf --depend .\discover-more\netconf.d)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/mem.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/opt.h)(0x520D43D2)
@@ -287,7 +287,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (..\inc\AT_Command.h)(0x5B2BDD80)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
-I (..\inc\function.h)(0x5B31163E)
+I (..\inc\function.h)(0x5B311B79)
 I (..\inc\netconf.h)(0x520D43D2)
 F (..\src\stm32f4x7_eth_bsp.c)(0x520D43D2)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\stm32f4x7_eth_bsp.o --omf_browse .\discover-more\stm32f4x7_eth_bsp.crf --depend .\discover-more\stm32f4x7_eth_bsp.d)
 I (..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h)(0x520D43D2)
@@ -337,9 +337,9 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
 I (..\inc\AT_Command.h)(0x5B2BDD80)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
-I (..\inc\function.h)(0x5B31163E)
-F (..\src\function.cpp)(0x5B311652)(--cpp -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\function.o --omf_browse .\discover-more\function.crf --depend .\discover-more\function.d)
-I (..\inc\function.h)(0x5B31163E)
+I (..\inc\function.h)(0x5B311B79)
+F (..\src\function.cpp)(0x5B326A1A)(--cpp -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\function.o --omf_browse .\discover-more\function.crf --depend .\discover-more\function.d)
+I (..\inc\function.h)(0x5B311B79)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
 I (..\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x520D43D2)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588B9154)
@@ -1130,7 +1130,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (..\inc\AT_Command.h)(0x5B2BDD80)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
-I (..\inc\function.h)(0x5B31163E)
+I (..\inc\function.h)(0x5B311B79)
 F (..\..\..\..\Utilities\lwip_v1.3.2\src\api\api_lib.c)(0x520D43D2)(-c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\api_lib.o --omf_browse .\discover-more\api_lib.crf --depend .\discover-more\api_lib.d)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/opt.h)(0x520D43D2)
 I (..\inc\lwipopts.h)(0x520D43D2)
