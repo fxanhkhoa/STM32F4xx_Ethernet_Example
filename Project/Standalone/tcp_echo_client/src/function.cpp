@@ -1,7 +1,7 @@
 #include "function.h"
 
 //private variables
-char outPutText[20];
+char outPutText[30];
 
 /*
 Function Name: OpenDoor(number)
@@ -165,13 +165,15 @@ char CheckOpenDoor(char *s)
 		
 		if ((strstr(s, ID) != NULL)) // if ID in s
 		{
-			strcpy(outPutText,"OK+OPEN+");
+			/*strcpy(outPutText,"OK+OPEN+");
 			strcat(outPutText, ID);
-			//for (i = 0; i < 9; i ++) s1[8+i] = ID[i];*/
+			//for (i = 0; i < 9; i ++) s1[8+i] = ID[i];
 			U_Print_Char(USART1, "OK+OPEN+");
 			U_Print_Char(USART1, ID);
 			flag = 1;
-			break;
+			break;*/
+			
+			//Get Day, Time from DS1307
 		}
 		else
 		{
@@ -183,14 +185,6 @@ char CheckOpenDoor(char *s)
 		}
 	}
 	//U_Print_Char(USART1,s);
-	if (flag == 1)
-	{
-		//DOOR[0] = s[18];
-		if (ID[8] == '1') return OPEN1;
-		else if (ID[8] == '2') return OPEN2;
-		else if (ID[8] == '3')	return OPEN3;
-		else if (ID[8] == '4')	return OPEN4;
-	}
 	return NONE;
 }
 

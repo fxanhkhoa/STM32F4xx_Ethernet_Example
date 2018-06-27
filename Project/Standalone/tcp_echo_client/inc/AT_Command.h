@@ -16,6 +16,7 @@ extern "C" {
 #define IDBOOL 9
 #define IDDEL 10
 #define CLEARALL 11
+#define DS1307 12
 	
 #include <string.h>
 #include <stdlib.h>

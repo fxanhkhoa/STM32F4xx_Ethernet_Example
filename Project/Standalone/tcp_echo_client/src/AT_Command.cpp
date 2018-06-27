@@ -52,6 +52,10 @@ char CheckAT(char *s)
 	{
 		return CLEARALL;
 	}
+	else if (strstr(s, "AT+DS1307") != NULL)
+	{
+		return DS1307;
+	}
 	return NONE;
 }
 

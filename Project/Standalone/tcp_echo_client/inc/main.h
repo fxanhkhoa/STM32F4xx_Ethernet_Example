@@ -109,7 +109,7 @@
 // define some other mode
 #define NONE 1
 //#define ID   2
-#define DS1307 99
+
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */  

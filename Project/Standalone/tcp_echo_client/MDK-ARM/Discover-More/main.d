@@ -68,3 +68,4 @@
 .\discover-more\main.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/netif.h
 .\discover-more\main.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/icmp.h
 .\discover-more\main.o: ..\inc\tcp_echoclient.h
+.\discover-more\main.o: ..\inc\DS1307.h

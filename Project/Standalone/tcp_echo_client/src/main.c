@@ -46,6 +46,7 @@
 #include "main.h"
 #include "lwip/tcp.h"
 #include "tcp_echoclient.h"
+#include "DS1307.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define SYSTEMTICK_PERIOD_MS  10
@@ -98,6 +99,7 @@ int main(void)
        system_stm32f4xx.c file
      */
   /* Variables */
+	char *stime = malloc(sizeof(char) * 20);
 	char s[40];
 	char i;
 	
@@ -113,6 +115,7 @@ int main(void)
   LwIP_Init();
 	
 	Init_peripheral();
+	DS1307Init();
 	/*
 	EEPROM_writeByte(0x0009,192);
 	Delay(10);
@@ -140,6 +143,7 @@ int main(void)
 	
 	/* Get Quantity 8 high bits(0x0014) and 8 high bits (0x0015)*/
 	quantity = (EEPROM_readByte(0x0014) << 8) | (EEPROM_readByte(0x0015));
+	//DS1307SetTime();
 
   /* Infinite loop */
   while (1)
@@ -183,8 +187,10 @@ int main(void)
 		}
 		else if (mode == DS1307)
 		{
-			GPIO_SetBits(GPIOD,GPIO_Pin_15);
-			OpenDoor(0);
+			GPIO_ToggleBits(GPIOD,GPIO_Pin_13);
+			stime= DS1307GetTimeString();
+			tcp_write(get_tcp_pcb(), stime, 20, 1);
+			mode = NONE;
 		}
 		else if (mode == OPEN1)
 		{

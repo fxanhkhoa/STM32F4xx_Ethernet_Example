@@ -362,7 +362,7 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
             <v6LangP>1</v6LangP>
@@ -469,6 +469,11 @@
               <FileType>8</FileType>
               <FilePath>..\src\U_Print.cpp</FilePath>
             </File>
+            <File>
+              <FileName>DS1307.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\DS1307.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -558,6 +563,11 @@
               <FileName>stm32f4xx_iwdg.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c</FilePath>
             </File>
           </Files>
         </Group>
