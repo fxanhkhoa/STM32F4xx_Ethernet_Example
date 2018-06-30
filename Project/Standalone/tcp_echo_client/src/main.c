@@ -100,7 +100,8 @@ int main(void)
      */
   /* Variables */
 	char *stime = malloc(sizeof(char) * 20);
-	char s[40];
+	char str[40];
+	uint16_t k = 19;
 	char i;
 	
 	Init_peripheral();
@@ -116,35 +117,63 @@ int main(void)
 	
 	Init_peripheral();
 	DS1307Init();
-	/*
-	EEPROM_writeByte(0x0009,192);
+	
+	EEPROM_writeByte(9,192);
 	Delay(10);
-	EEPROM_writeByte(0x0010,168);
+	EEPROM_writeByte(10,168);
 	Delay(10);
-	EEPROM_writeByte(0x0011,1);
+	EEPROM_writeByte(11,1);
 	Delay(10);
-	EEPROM_writeByte(0x0012,7);
+	EEPROM_writeByte(12,6);
 	Delay(10);
-	EEPROM_writeByte(0x0013,35);
+	EEPROM_writeByte(13,35);
 	Delay(10);
-	*/
+	
+	
+	EEPROM_writeByte(16,138);
+	Delay(10);
+	EEPROM_writeByte(17,59);
+	Delay(10);
+	EEPROM_writeByte(18,65);
+	Delay(10);
+	EEPROM_writeByte(19,77);
+	Delay(10);
+	k++;
+	EEPROM_writeByte(20,1);
+	Delay(10);
+	k++;
+	EEPROM_writeByte(21,254);
+	Delay(10);
+	k++;
+	EEPROM_writeByte(22,0);
+	Delay(10);
+	k++;
+	EEPROM_writeByte(23,0);
+	Delay(10);
+	k++;
+	EEPROM_writeByte(24,23);
+	Delay(10);
+	k++;
+	EEPROM_writeByte(25,59);
+	Delay(10);
+	
 	led_toggle();
 	
 	
 	/* Get Destination IP Address & Port */
 	// IP Address 4 bytes
-	DEST_IP_ADDR0 = EEPROM_readByte(0x0009);
-	DEST_IP_ADDR1 = EEPROM_readByte(0x0010);
-	DEST_IP_ADDR2 = EEPROM_readByte(0x0011);
-	DEST_IP_ADDR3 = EEPROM_readByte(0x0012);
+	DEST_IP_ADDR0 = EEPROM_readByte(9);
+	DEST_IP_ADDR1 = EEPROM_readByte(10);
+	DEST_IP_ADDR2 = EEPROM_readByte(11);
+	DEST_IP_ADDR3 = EEPROM_readByte(12);
 	// Port 1 byte
-	DEST_PORT = EEPROM_readByte(0x0013);
+	DEST_PORT = EEPROM_readByte(13);
 	//DEST_PORT = 35;
 	
 	/* Get Quantity 8 high bits(0x0014) and 8 high bits (0x0015)*/
 	quantity = (EEPROM_readByte(0x0014) << 8) | (EEPROM_readByte(0x0015));
 	//DS1307SetTime();
-
+	
   /* Infinite loop */
   while (1)
   {  
@@ -155,7 +184,7 @@ int main(void)
     }
     /* handle periodic timers for LwIP */
     LwIP_Periodic_Handle(LocalTime);
-		
+		//tcp_echoclient_connect();
     if (Button_State()) {
       /*connect to tcp server */ 
 			tcp_echoclient_connect(); //Must put in here
@@ -163,11 +192,12 @@ int main(void)
     }
 		
 		
-		strcpy(s,get_data()); // copy data to s
+		strcpy(str,get_data()); // copy data to s
+		str[get_strlen()] = '\0';
 		// Get AT Mode
 		if (get_strlen() > 0)
 		{
-			mode = CheckAT(get_data());
+			mode = CheckAT(str);
 			clear_data(); // Clear Read data
 			set_strlen(0); // Set strlen = 0
 		}
@@ -179,11 +209,11 @@ int main(void)
 		/* Check RFID, Time, Door */
 		else if (mode == IDCHECK)
 		{
-			char temps[9];
-			memcpy(temps, &get_data()[10], 8); // Copy from 10 to 18 of string input
-			temps[8] = '\0';
+			char temps[11];
+			memcpy(temps, &str[10], 10); // Copy from 10 to 18 of string input
+			temps[10] = '\0';
 			
-			mode = CheckOpenDoor(get_data());
+			mode = CheckOpenDoor(str);
 		}
 		else if (mode == DS1307)
 		{
@@ -382,6 +412,12 @@ uint8_t GetIPADDR1(void) {return DEST_IP_ADDR1;}
 uint8_t GetIPADDR2(void) {return DEST_IP_ADDR2;}
 uint8_t GetIPADDR3(void) {return DEST_IP_ADDR3;}
 uint16_t GetQuantity(void) {return quantity;}
+void SetQuantity(uint16_t number) 
+{
+	quantity = number;
+	EEPROM_writeByte(0x0014, (uint8_t) number >> 8);
+	EEPROM_writeByte(0x0015, (uint8_t) number & 0x00FF);
+}
 
 void USART1_IRQHandler(void)
 {

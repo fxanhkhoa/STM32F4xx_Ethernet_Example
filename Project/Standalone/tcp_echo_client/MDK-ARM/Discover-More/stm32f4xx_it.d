@@ -48,4 +48,5 @@
 .\discover-more\stm32f4xx_it.o: ..\inc\25lc256.h
 .\discover-more\stm32f4xx_it.o: ..\inc\function.h
 .\discover-more\stm32f4xx_it.o: ..\inc\main.h
+.\discover-more\stm32f4xx_it.o: ..\inc\DS1307.h
 .\discover-more\stm32f4xx_it.o: ..\inc\tcp_echoclient.h

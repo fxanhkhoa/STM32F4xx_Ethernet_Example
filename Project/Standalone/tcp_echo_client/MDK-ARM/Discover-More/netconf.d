@@ -70,4 +70,5 @@
 .\discover-more\netconf.o: ..\inc\25lc256.h
 .\discover-more\netconf.o: ..\inc\function.h
 .\discover-more\netconf.o: ..\inc\main.h
+.\discover-more\netconf.o: ..\inc\DS1307.h
 .\discover-more\netconf.o: ..\inc\netconf.h

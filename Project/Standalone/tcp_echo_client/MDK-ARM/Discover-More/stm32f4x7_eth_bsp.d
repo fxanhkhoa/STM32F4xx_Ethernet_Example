@@ -49,3 +49,4 @@
 .\discover-more\stm32f4x7_eth_bsp.o: ..\inc\25lc256.h
 .\discover-more\stm32f4x7_eth_bsp.o: ..\inc\function.h
 .\discover-more\stm32f4x7_eth_bsp.o: ..\inc\main.h
+.\discover-more\stm32f4x7_eth_bsp.o: ..\inc\DS1307.h

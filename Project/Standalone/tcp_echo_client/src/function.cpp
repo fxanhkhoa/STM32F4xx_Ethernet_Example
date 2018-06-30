@@ -2,6 +2,7 @@
 
 //private variables
 char outPutText[30];
+DATE_TYPE timeNow;
 
 /*
 Function Name: OpenDoor(number)
@@ -132,38 +133,43 @@ Return: char
 
 Note: none
 */
-char CheckOpenDoor(char *s)
+char CheckOpenDoor(char s[])
 {
 	//U_Print_Char(USART1,s);
+	char mode_temp = NONE;
 	int i,flag = 0;
+	uint16_t j;
 	char ID[5];
 	char *RFID = new char[5];
 	char door;
 	char day;
-	char hour;
-	char minute;
+	char hourFrom, hourTo;
+	char minuteFrom, minuteTo;
 	uint16_t quantity = GetQuantity();
 	outPutText[0] = '\0';
 	for (i = 0; i < quantity; i++)
 	{
+		mode_temp = 1; // true state
+		timeNow = DS1307ReadTime(); // Get current time
 		// Check ID
-		for (int j = 0; j < 4; j++)
+		for (j = 0; j < 4; j++)
 		{
 			ID[j] = (char)EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + j);
 		}
-		ID[4] = '\0';
+		//ID[4] = '\0';
 		//U_Print_Char(USART1, ID);
 		//U_Print_Char(USART1, "\n");
-		
 		/* Check door*/
-		door = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 4);
+		door = (char)EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 4);
 		// Check day
-		day = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 5);
+		day = (char)EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 5);
 		// Check time
-		hour = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 6);
-		minute = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 7);
+		hourFrom = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 0x06);
+		minuteFrom = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 7);
+		hourTo = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 8);
+		minuteTo = (char) EEPROM_readByte(START_OF_RFID_USER + i*NUMBER_OF_BLOCK + 9);
 		
-		if ((strstr(s, ID) != NULL)) // if ID in s
+		if ((strstr(s, ID) == NULL)) // if ID not in s
 		{
 			/*strcpy(outPutText,"OK+OPEN+");
 			strcat(outPutText, ID);
@@ -173,17 +179,65 @@ char CheckOpenDoor(char *s)
 			flag = 1;
 			break;*/
 			
-			//Get Day, Time from DS1307
+			mode_temp = 0;
 		}
-		else
+		// Check Door
+		if (door != s[14])
 		{
-			quantity ++;
-			for (int j = 0; j < 4; j++)
+			mode_temp = 0;
+		}
+		// Check Day
+		if (((day >> s[15]) & (0x01)) == 1) // position is 16 
+		{
+			mode_temp = 0;
+		}
+		// Check Time
+		uint8_t hour = (timeNow.hour1 * 10) + timeNow.hour0;
+		uint8_t minute = (timeNow.min1 * 10) + timeNow.min0;
+		//if ((hourFrom <= hour) && (hour <= hourTo) && (minuteFrom <= minute) && (minute <= minuteTo)) //time allow
+		if (!((hourFrom <= hour) && (hour <= hourTo) && (minuteFrom <= minute) && (minute <= minuteTo)))
+		{
+			mode_temp = 0;
+		}
+		if (mode_temp == 1)
+		{
+			outPutText[0] = '\0';
+			if (door == 1)
 			{
-				EEPROM_writeByte(START_OF_RFID_USER + (quantity)*NUMBER_OF_BLOCK + j, RFID[j]);
+				outPutText[0] = BOARDID;
+				strcat(outPutText, "AT+OPEN1");
+				strcat(outPutText,ID);
+				return OPEN1;
+			}
+			else if (door == 2)
+			{
+				outPutText[0] = BOARDID;
+				strcat(outPutText, "AT+OPEN2");
+				strcat(outPutText,ID);
+				return OPEN2;
+			}
+			else if (door == 3)
+			{
+				outPutText[0] = BOARDID;
+				strcat(outPutText, "AT+OPEN3");
+				strcat(outPutText,ID);
+				return OPEN3;
+			}
+			else if (door == 4)
+			{
+				outPutText[0] = BOARDID;
+				strcat(outPutText, "AT+OPEN4");
+				strcat(outPutText,ID);
+				return OPEN4;
 			}
 		}
 	}
+	quantity ++;
+	for (int j = 0; j < 4; j++)
+	{
+		EEPROM_writeByte(START_OF_RFID_USER + (quantity)*NUMBER_OF_BLOCK + j, RFID[j]);
+	}
+	SetQuantity(quantity);
 	//U_Print_Char(USART1,s);
 	return NONE;
 }

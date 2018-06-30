@@ -67,3 +67,4 @@
 .\discover-more\tcp_echoclient.o: ..\inc\25lc256.h
 .\discover-more\tcp_echoclient.o: ..\inc\function.h
 .\discover-more\tcp_echoclient.o: ..\inc\main.h
+.\discover-more\tcp_echoclient.o: ..\inc\DS1307.h

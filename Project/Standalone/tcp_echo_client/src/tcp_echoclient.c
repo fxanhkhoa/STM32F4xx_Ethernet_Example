@@ -44,6 +44,7 @@ u8_t   data[100];
 struct tcp_pcb *tcp_for_global;
 char* str_data;
 uint8_t str_len;
+char connectStatus = 0;
 
 
 //extern uint8_t DEST_PORT = 6;

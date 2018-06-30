@@ -106,9 +106,8 @@
 /* MII and RMII mode selection, for STM324xG-EVAL Board(MB786) RevB ***********/
 #define RMII_MODE          
 
-// define some other mode
-#define NONE 1
-//#define ID   2
+// define board ID
+#define BOARDID  2
 
 
 /* Exported macro ------------------------------------------------------------*/
@@ -121,6 +120,7 @@ uint8_t GetIPADDR1(void);
 uint8_t GetIPADDR2(void);
 uint8_t GetIPADDR3(void);
 uint16_t GetQuantity(void);
+void SetQuantity(uint16_t number);
 
 #ifdef __cplusplus
 }

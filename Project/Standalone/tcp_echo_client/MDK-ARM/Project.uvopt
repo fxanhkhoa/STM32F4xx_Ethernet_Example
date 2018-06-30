@@ -162,9 +162,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>190</LineNumber>
+          <LineNumber>200</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134219356</Address>
+          <Address>134219470</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -173,19 +173,29 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\src\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Project\../src/main.c\190</Expression>
+          <Expression>\\Project\../src/main.c\200</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>temp</ItemText>
+          <ItemText>hourTo,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>values,0x0A</ItemText>
+          <ItemText>hourFrom,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>door</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ID,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

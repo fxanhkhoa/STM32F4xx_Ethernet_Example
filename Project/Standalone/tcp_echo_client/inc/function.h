@@ -13,10 +13,11 @@ extern "C" {
 #include "string.h"
 #include "AT_Command.h"
 #include "main.h"
+#include "DS1307.h"
 
 	
-#define NUMBER_OF_BLOCK 8
-#define START_OF_RFID_USER 0x0016
+#define NUMBER_OF_BLOCK 10
+#define START_OF_RFID_USER 16
 	
 extern uint32_t time;
 	
@@ -28,7 +29,7 @@ void CloseDoor(int number);
 char * IDADD_READ_RFID(char *s);
 char * IDADD_READ_TIME(char *s);
 char * IDADD_READ_DOOR(char *s);
-char CheckOpenDoor(char *s);
+char CheckOpenDoor(char s[]);
 void ID_DEL(char *ID_IN);
 	
 #ifdef __cplusplus

@@ -47,3 +47,4 @@
 .\discover-more\function.o: ..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h
 .\discover-more\function.o: ..\..\..\..\Utilities\STM32F4-Discovery\fonts.h
 .\discover-more\function.o: ..\inc\function.h
+.\discover-more\function.o: ..\inc\DS1307.h

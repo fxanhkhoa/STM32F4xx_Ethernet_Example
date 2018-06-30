@@ -65,3 +65,4 @@
 .\discover-more\ethernetif.o: ..\inc\25lc256.h
 .\discover-more\ethernetif.o: ..\inc\function.h
 .\discover-more\ethernetif.o: ..\inc\main.h
+.\discover-more\ethernetif.o: ..\inc\DS1307.h
