@@ -180,22 +180,12 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>hourTo,0x0A</ItemText>
+          <ItemText>str,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>hourFrom,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>2</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>door</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>ID,0x0A</ItemText>
+          <ItemText>tempPtr,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
@@ -649,7 +639,7 @@
 
   <Group>
     <GroupName>LWIP</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
