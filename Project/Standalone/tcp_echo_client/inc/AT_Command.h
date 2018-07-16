@@ -4,23 +4,19 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	
-#define NONE 1
-#define IDCHECK   2 //Kiem tra ID + Time + DOOR
-#define OPEN1 3
-#define OPEN2 4
-#define OPEN3 5
-#define OPEN4 6
-#define IDREAD 7
-#define IDADD 8
-#define IDBOOL 9
-#define IDDEL 10
-#define CLEARALL 11
-#define DS1307 12
-#define SETDS1307 13
+
+#define NONE 0
+#define IDCHECK 1
+#define IDADD	2
+#define IDDEL 3
+#define SETDS1307 4
+#define DS1307 5
+#define OPEN 6
+#define CLEARALL 7
 	
 #include <string.h>
 #include <stdlib.h>
+#include "stm32f4xx.h"
 	
 extern char _read;
 	
@@ -31,7 +27,7 @@ struct RFID
 	char DOOR[4+1];
 };
 	
-char CheckAT(char *s);
+uint8_t CheckAT(char *s);
 char Check_ID(char *s);
 char Check_Door(char *s);
 	

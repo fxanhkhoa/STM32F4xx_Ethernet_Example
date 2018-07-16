@@ -7,56 +7,19 @@ Name: CheckAT
 
 Description: Use this function to check AT command
 
-Input: String for checking
+Input: buffer for checking
 
 Output: Number of Mode defined in AT_Command.h
 */
-char CheckAT(char *s)
+uint8_t CheckAT(char *s)
 {
 	//strcpy(RFID_ID[0].ADDR,"B0562917");
 	//strcpy(RFID_ID[0].ADDR,"B056291");
-	if (strstr(s, "AT+IDCHECK") != NULL)
+	switch (s[1])
 	{
-		//_read = 0;
-		return IDCHECK;
-	}
-	else if (strstr(s, "AT+OPEN1") != NULL)
-	{
-		return OPEN1;
-	}
-	else if (strstr(s, "AT+OPEN2") != NULL)
-	{
-		return OPEN2;
-	}
-	else if (strstr(s, "AT+OPEN3") != NULL)
-	{
-		return OPEN3;
-	}
-	else if (strstr(s, "AT+OPEN4") != NULL)
-	{
-		return OPEN4;
-	}
-	else if (strstr(s, "AT+IDREAD") != NULL)
-	{
-		return IDREAD;
-	}
-	else if (strstr(s, "AT+IDADD") != NULL)
-	{
-		return IDADD;
-	}
-	else if (strstr(s, "AT+IDDEL") != NULL)
-	{
-		return IDDEL;
-	}
-	else if (strstr(s, "AT+CLEARALL") != NULL)
-	{
-		return CLEARALL;
-	}
-	else if (strstr(s, "AT+DS1307") != NULL)
-	{
-		return DS1307;
-	}
-	return NONE;
+		
+	};
+	return IDADD;
 }
 
 char Check_ID(char *s)

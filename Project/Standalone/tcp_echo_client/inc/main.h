@@ -54,6 +54,10 @@
 #include "stm32f4xx.h"
 #include "stm32f4x7_eth_bsp.h"
 #include "stm32f4_discovery_lcd.h"
+#include "stm32f4xx_tim.h"
+#include "stm32f4xx_gpio.h"
+#include "stm32f4xx_rcc.h"
+#include "misc.h"
 	 
 #include "U_Print.h"
 #include "AT_Command.h"
@@ -108,6 +112,12 @@
 
 // define board ID
 #define BOARDID  2
+
+// LED
+#define LED_GREEN										GPIO_Pin_12
+#define LED_ORANGE									GPIO_Pin_13
+#define LED_RED											GPIO_Pin_14
+#define LED_BLUE										GPIO_Pin_15
 
 
 /* Exported macro ------------------------------------------------------------*/

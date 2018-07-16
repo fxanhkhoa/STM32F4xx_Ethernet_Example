@@ -14,9 +14,10 @@ extern "C" {
 #include "AT_Command.h"
 #include "main.h"
 #include "DS1307.h"
+#include "lwip/tcp.h"
 
 	
-#define NUMBER_OF_BLOCK 10
+#define NUMBER_OF_BLOCK 10 // 12Byte
 #define START_OF_RFID_USER 16
 	
 extern uint32_t time;
@@ -29,8 +30,10 @@ void CloseDoor(int number);
 char * IDADD_READ_RFID(char *s);
 char * IDADD_READ_TIME(char *s);
 char * IDADD_READ_DOOR(char *s);
-char CheckOpenDoor(char s[]);
-void ID_DEL(char *ID_IN);
+uint8_t CheckOpenDoor(char *s);
+void ID_DEL(unsigned char *ID_IN);
+int AddNewUser(unsigned char *s);
+unsigned char *GetOutPutText();
 	
 #ifdef __cplusplus
 }

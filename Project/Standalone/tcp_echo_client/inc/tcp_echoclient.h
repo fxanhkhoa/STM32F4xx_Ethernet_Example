@@ -34,6 +34,8 @@ char* get_data(void);
 uint8_t get_strlen(void);
 void clear_data(void);
 void set_strlen(uint8_t len);
+uint8_t* GetDataByteType();
+void* GetVoidStr();
 
 #endif /* __TCP_ECHOCLIENT_H__ */
 

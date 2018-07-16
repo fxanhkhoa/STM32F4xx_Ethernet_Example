@@ -73,7 +73,7 @@ uint8_t DEST_IP_ADDR3;
 //char s[40], s1[40]; uint8_t pos,pos1 = 0; // Use for USART
 
 char _read = 1;
-char mode = NONE;
+uint8_t mode = NONE;
 uint16_t number;
 uint16_t quantity = 0;
 
@@ -100,9 +100,11 @@ int main(void)
      */
   /* Variables */
 	char *stime = malloc(sizeof(char) * 20);
-	char str[40];
-	uint16_t k = 19;
-	char i;
+	unsigned char *str = malloc(sizeof(char) * 12);
+	uint8_t *strByte = malloc(sizeof(uint8_t) * 12);
+	uint8_t i;
+	uint8_t flag_connected = 0;
+	void* voidStr;
 	
 	Init_peripheral();
 	
@@ -115,21 +117,38 @@ int main(void)
   /* Initilaize the LwIP stack */
   LwIP_Init();
 	
-	Init_peripheral();
 	DS1307Init();
+	Init_peripheral();
 	
 	EEPROM_writeByte(9,192);
-	Delay(10);
+	//Delay(10);
+	time = 0;
+	TIM_SetCounter(TIM4, 0);
+	while (time < 50) time = TIM_GetCounter(TIM4);
 	EEPROM_writeByte(10,168);
 	Delay(10);
 	EEPROM_writeByte(11,1);
 	Delay(10);
-	EEPROM_writeByte(12,6);
+	EEPROM_writeByte(12,4);
 	Delay(10);
 	EEPROM_writeByte(13,35);
 	Delay(10);
 	
+	// Set Quantity
+	/*
+	EEPROM_writeByte(14,0);
+	time = 0;
+	TIM_SetCounter(TIM4, 0);
+	while (time < 50) time = TIM_GetCounter(TIM4);
+	//Delay(1);
+	EEPROM_writeByte(15,0);
+	time = 0;
+	TIM_SetCounter(TIM4, 0);
+	//Delay(1);
+	while (time < 50) time = TIM_GetCounter(TIM4);
+	*/
 	
+	/*
 	EEPROM_writeByte(16,138);
 	Delay(10);
 	EEPROM_writeByte(17,59);
@@ -156,8 +175,8 @@ int main(void)
 	k++;
 	EEPROM_writeByte(25,59);
 	Delay(10);
-	
-	led_toggle();
+	*/
+	GPIO_ToggleBits(GPIOD, LED_RED);
 	
 	
 	/* Get Destination IP Address & Port */
@@ -171,10 +190,12 @@ int main(void)
 	//DEST_PORT = 35;
 	
 	/* Get Quantity 8 high bits(0x0014) and 8 high bits (0x0015)*/
-	quantity = (EEPROM_readByte(0x0014) << 8) | (EEPROM_readByte(0x0015));
+	quantity = (EEPROM_readByte(14) << 8) | (EEPROM_readByte(15));
 	//DS1307SetTime();
 	
   /* Infinite loop */
+	TIM_SetCounter(TIM4, 0);
+	flag_connected = 0;
   while (1)
   {  
     /* check if any packet received */
@@ -185,19 +206,30 @@ int main(void)
     /* handle periodic timers for LwIP */
     LwIP_Periodic_Handle(LocalTime);
 		//tcp_echoclient_connect();
+		time = TIM_GetCounter(TIM4);
+		if ((time >= 65000) && (flag_connected == 0))
+		{
+			tcp_echoclient_connect();
+			flag_connected = 1;
+			GPIO_ToggleBits(GPIOD, LED_BLUE);
+		}
     if (Button_State()) {
       /*connect to tcp server */ 
 			tcp_echoclient_connect(); //Must put in here
+			flag_connected = 1;
+			GPIO_ToggleBits(GPIOD, LED_BLUE);
 			//tcp_write(get_tcp_pcb(), "aaaa", 4, 1);
     }
 		
 		
-		strcpy(str,get_data()); // copy data to s
+		strcpy(str,get_data()); // copy data to str
 		str[get_strlen()] = '\0';
 		// Get AT Mode
 		if (get_strlen() > 0)
 		{
-			mode = CheckAT(str);
+			voidStr = GetVoidStr();
+			strByte = GetDataByteType();
+			mode = str[1];
 			clear_data(); // Clear Read data
 			set_strlen(0); // Set strlen = 0
 		}
@@ -209,11 +241,7 @@ int main(void)
 		/* Check RFID, Time, Door */
 		else if (mode == IDCHECK)
 		{
-			char temps[11];
-			memcpy(temps, &str[10], 10); // Copy from 10 to 18 of string input
-			temps[10] = '\0';
-			
-			mode = CheckOpenDoor(str);
+			mode = CheckOpenDoor(voidStr);
 		}
 		else if (mode == DS1307)
 		{
@@ -222,24 +250,34 @@ int main(void)
 			tcp_write(get_tcp_pcb(), stime, 20, 1);
 			mode = NONE;
 		}
-		else if (mode == OPEN1)
+		else if (mode == OPEN)
 		{
-			OpenDoor(0);
+			if (str[6] == 1)
+				OpenDoor(0);
+			else if (str[6] == 2)
+				OpenDoor(1);
+			else if (str[6] == 3)
+				OpenDoor(2);
+			else if (str[6] == 4)
+				OpenDoor(3);
+			
+			tcp_write(get_tcp_pcb(), GetOutPutText(), 12, 1);
+			
 			Delay(5000);
 			CloseDoor(0);
+			CloseDoor(1);
+			CloseDoor(2);
+			CloseDoor(3);
 			mode = NONE;
 		}
-		else if (mode == OPEN2)
+		else if (mode == IDADD)
 		{
-			
+			AddNewUser(voidStr);
+			mode = NONE;
 		}
-		else if (mode == OPEN3)
+		else if (mode == CLEARALL)
 		{
-			
-		}
-		else if (mode == OPEN4)
-		{
-			
+			SetQuantity(0);
 		}
   }   
 }
@@ -307,12 +345,14 @@ void Init_peripheral()
 	// Timer 4 -----> Max 50Mhz
 	
 	TIMER.TIM_ClockDivision = TIM_CKD_DIV1;
-	TIMER.TIM_Prescaler = 1000;
+	TIMER.TIM_Prescaler = 5000;
 	TIMER.TIM_CounterMode = TIM_CounterMode_Up;
-	TIMER.TIM_Period = 2-1;
+	TIMER.TIM_Period = 65535;
 	TIMER.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM4, &TIMER);
 	TIM_Cmd(TIM4, ENABLE);
+	TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+	TIM_SetCounter(TIM4, 0);
 	TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
 	
 	/*---- USART Init ----*/
@@ -380,19 +420,10 @@ void Init_peripheral()
 	
 	SPI_Cmd(SPI3, ENABLE); // enable SPI1
 	
-	
-	/*----- NVIC Timer interrupt -----*/
-	
-	NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-	
 	/*----- NVIC USART2 interrupt -----*/
 	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 	
@@ -400,10 +431,18 @@ void Init_peripheral()
 	if (Conn_use == 1){
 	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 	}
+	
+	/*----- NVIC Timer interrupt -----*/
+	
+	NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 }
 
 uint8_t GetPort(void) {return DEST_PORT;}
@@ -411,12 +450,25 @@ uint8_t GetIPADDR0(void) {return DEST_IP_ADDR0;}
 uint8_t GetIPADDR1(void) {return DEST_IP_ADDR1;}
 uint8_t GetIPADDR2(void) {return DEST_IP_ADDR2;}
 uint8_t GetIPADDR3(void) {return DEST_IP_ADDR3;}
-uint16_t GetQuantity(void) {return quantity;}
+uint16_t GetQuantity(void) 
+{
+	uint16_t a = (EEPROM_readByte(14) << 8) | (EEPROM_readByte(15));
+	return a;
+}
 void SetQuantity(uint16_t number) 
 {
 	quantity = number;
-	EEPROM_writeByte(0x0014, (uint8_t) number >> 8);
-	EEPROM_writeByte(0x0015, (uint8_t) number & 0x00FF);
+	EEPROM_writeByte(14, (uint8_t) number >> 8);
+	time = 0;
+	TIM_SetCounter(TIM4, 0);
+	while (time < 50) time = TIM_GetCounter(TIM4);
+	//Delay(1);
+	
+	EEPROM_writeByte(15, (uint8_t) number & 0x00FF);
+	time = 0;
+	TIM_SetCounter(TIM4, 0);
+	while (time < 50) time = TIM_GetCounter(TIM4);
+	//Delay(1);
 }
 
 void USART1_IRQHandler(void)
@@ -442,9 +494,10 @@ void TIM4_IRQHandler()
 {
     if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET)
     {
-        TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+			//led_toggle();
+			time++;
+      TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
 				//time_now ++;
-				time++;
         //led_toggle();
     }
 }

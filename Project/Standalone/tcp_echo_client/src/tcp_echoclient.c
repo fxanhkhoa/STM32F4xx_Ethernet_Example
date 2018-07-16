@@ -43,9 +43,10 @@ u8_t   data[100];
 
 struct tcp_pcb *tcp_for_global;
 char* str_data;
+uint8_t * strDataByteType;
 uint8_t str_len;
 char connectStatus = 0;
-
+void* voidStr;
 
 //extern uint8_t DEST_PORT = 6;
 
@@ -88,6 +89,11 @@ struct tcp_pcb* get_tcp_pcb()
 	return tcp_for_global;
 }
 
+uint8_t* GetDataByteType()
+{
+	return strDataByteType;
+}
+
 uint8_t get_strlen(void)
 {
 	return str_len;
@@ -98,14 +104,19 @@ void set_strlen(uint8_t len)
 	str_len = len;
 }
 
-char* get_data(void)
+unsigned char* get_data(void)
 {
 	return str_data;
 }
 
 void clear_data(void)
 {
-	str_data = "";
+	str_data[0] = '\0';
+}
+
+void* GetVoidStr()
+{
+	return voidStr;
 }
 
 /**
@@ -201,7 +212,7 @@ static err_t tcp_echoclient_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
   struct echoclient *es;
   err_t ret_err;
 	char i;
-	char *tempPtr;
+	u8_t *tempPtr;
 
 	// Get tcp_pcb global
 	tcp_for_global = tpcb;
@@ -211,10 +222,12 @@ static err_t tcp_echoclient_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
   es = (struct echoclient *)arg;
 	
 	//Get data to a variable
-	tempPtr = (char*)p->payload;
+	tempPtr = (u8_t*)p->payload;
+	voidStr = p->payload;
 	
 	//for (i = 0 ; i < (p->len); i++) s1[i] =(char) *(tempPtr++);
-	str_data = tempPtr;
+	str_data = (char*)tempPtr;
+	strDataByteType = (u8_t*)tempPtr;
 	str_len = p->len;
 	
 	tcp_write(tpcb, str_data, str_len, 1);

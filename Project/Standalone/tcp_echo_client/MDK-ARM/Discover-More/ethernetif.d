@@ -66,3 +66,6 @@
 .\discover-more\ethernetif.o: ..\inc\function.h
 .\discover-more\ethernetif.o: ..\inc\main.h
 .\discover-more\ethernetif.o: ..\inc\DS1307.h
+.\discover-more\ethernetif.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/tcp.h
+.\discover-more\ethernetif.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/sys.h
+.\discover-more\ethernetif.o: ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/icmp.h
