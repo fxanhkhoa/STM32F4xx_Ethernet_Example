@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Discover-More\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Discover-More\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Jul 17 00:40:48 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Jul 17 23:40:47 2018
 <BR><P>
 <H3>Maximum Stack Usage =        476 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -219,7 +219,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[65]"></a>main</STRONG> (Thumb, 674 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[65]"></a>main</STRONG> (Thumb, 692 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 452<LI>Call Chain = main &rArr; LwIP_Periodic_Handle &rArr; LwIP_DHCP_Process_Handle &rArr; netif_set_addr &rArr; netif_set_ipaddr &rArr; tcp_abandon &rArr; tcp_pcb_remove &rArr; tcp_output &rArr; tcp_output_segment &rArr; ip_output &rArr; ip_output_if &rArr; ip_frag &rArr; pbuf_alloc &rArr; pbuf_free &rArr; mem_free &rArr; plug_holes
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
@@ -511,8 +511,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new[] (unsigned)
 </UL>
 
-<P><STRONG><a name="[a8]"></a>CheckOpenDoor</STRONG> (Thumb, 268 bytes, Stack size 56 bytes, function.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = CheckOpenDoor &rArr; DS1307ReadTime &rArr; I2C_GetFlagStatus
+<P><STRONG><a name="[a8]"></a>CheckOpenDoor</STRONG> (Thumb, 328 bytes, Stack size 64 bytes, function.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = CheckOpenDoor &rArr; DS1307ReadTime &rArr; I2C_GetFlagStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307ReadTime
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_readByte
@@ -534,13 +534,12 @@ Global Symbols
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 
-<P><STRONG><a name="[af]"></a>AddNewUser</STRONG> (Thumb, 532 bytes, Stack size 40 bytes, function.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = AddNewUser &rArr; SetQuantity &rArr; EEPROM_writeByte &rArr; EEPROM_readStatus &rArr; SPI_ReadWrite
+<P><STRONG><a name="[af]"></a>AddNewUser</STRONG> (Thumb, 498 bytes, Stack size 32 bytes, function.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = AddNewUser &rArr; SetQuantity &rArr; EEPROM_writeByte &rArr; EEPROM_readStatus &rArr; SPI_ReadWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetCounter
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_writeByte
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_readByte
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetQuantity
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetQuantity
 </UL>
@@ -624,7 +623,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ID_DEL(char*)
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddNewUser
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetQuantity
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>

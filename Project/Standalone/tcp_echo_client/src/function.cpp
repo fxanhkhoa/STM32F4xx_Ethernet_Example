@@ -191,11 +191,12 @@ uint8_t CheckOpenDoor(char *s)
 		// Check Time
 		uint8_t hour = (timeNow.hour1 * 10) + timeNow.hour0;
 		uint8_t minute = (timeNow.min1 * 10) + timeNow.min0;
+		minute = (timeNow.min1 * 10) + timeNow.min0;
 		//if ((hourFrom <= hour) && (hour <= hourTo) && (minuteFrom <= minute) && (minute <= minuteTo)) //time allow
-//		if (!((hourFrom <= hour) && (hour <= hourTo) && (minuteFrom <= minute) && (minute <= minuteTo)))
-//		{
-//			mode_temp = 0;
-//		}
+		if (!((hourFrom <= hour) && (hour <= hourTo) && (minuteFrom <= minute) && (minute <= minuteTo)))
+		{
+			mode_temp = 0;
+		}
 		if (mode_temp == 1)
 		{
 			s[1] = OPEN;
@@ -361,10 +362,10 @@ int AddNewUser(unsigned char *s)
 		quantity++;
 		SetQuantity(quantity);
 		
-		uint8_t t;
-		t = GetQuantity();
-		t = EEPROM_readByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 2);
-		t = EEPROM_readByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 5);
+//		uint8_t t;
+//		t = GetQuantity();
+//		t = EEPROM_readByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 2);
+//		t = EEPROM_readByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 5);
 	}
 	return 1;
 }

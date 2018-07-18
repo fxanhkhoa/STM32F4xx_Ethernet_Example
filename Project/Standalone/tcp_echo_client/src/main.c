@@ -273,6 +273,8 @@ int main(void)
 		else if (mode == IDADD)
 		{
 			AddNewUser(voidStr);
+			str[1] = STOREOK;
+			tcp_write(get_tcp_pcb(), str, 12, 1);
 			mode = NONE;
 		}
 		else if (mode == CLEARALL)

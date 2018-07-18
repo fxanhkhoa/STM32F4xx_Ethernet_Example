@@ -13,6 +13,7 @@ extern "C" {
 #define DS1307 5
 #define OPEN 6
 #define CLEARALL 7
+#define STOREOK 8
 	
 #include <string.h>
 #include <stdlib.h>
