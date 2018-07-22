@@ -168,11 +168,17 @@ uint8_t CheckOpenDoor(char *s)
 		minuteTo = EEPROM_readByte(START_OF_RFID_USER + j*NUMBER_OF_BLOCK + 9); // minute to
 		
 		//Check Day 
-		if (((RFID[5] >> s[7]) & 0x01) != 0)
+		if (((RFID[5] >> s[7]) & 0x01) != 1)
 		{
 			mode_temp = 0;
 		}
-		RFID[5] = '\0';	// pass Day then delete Day from RFID[]
+		
+		//Check Door
+		if (((RFID[4] >> s[6]) & 0x01) != 1 )
+		{
+			mode_temp = 0;
+		}
+		RFID[4] = '\0';	// pass Day then delete Day from RFID[]
 		//Remove 2 first is ID and Command
 		*s++;
 		*s++;

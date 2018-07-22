@@ -110,9 +110,6 @@
 /* MII and RMII mode selection, for STM324xG-EVAL Board(MB786) RevB ***********/
 #define RMII_MODE          
 
-// define board ID
-#define BOARDID  2
-
 // LED
 #define LED_GREEN										GPIO_Pin_12
 #define LED_ORANGE									GPIO_Pin_13

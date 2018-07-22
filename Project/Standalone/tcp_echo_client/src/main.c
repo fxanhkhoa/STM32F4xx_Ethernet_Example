@@ -70,6 +70,7 @@ uint8_t DEST_IP_ADDR0;
 uint8_t DEST_IP_ADDR1;
 uint8_t DEST_IP_ADDR2;
 uint8_t DEST_IP_ADDR3;
+uint8_t IDBOARD;
 //char s[40], s1[40]; uint8_t pos,pos1 = 0; // Use for USART
 
 char _read = 1;
@@ -120,19 +121,24 @@ int main(void)
 	DS1307Init();
 	Init_peripheral();
 	
-	EEPROM_writeByte(9,192);
-	//Delay(10);
+	EEPROM_writeByte(8,1);
 	time = 0;
 	TIM_SetCounter(TIM4, 0);
 	while (time < 50) time = TIM_GetCounter(TIM4);
-	EEPROM_writeByte(10,168);
-	Delay(10);
-	EEPROM_writeByte(11,1);
-	Delay(10);
-	EEPROM_writeByte(12,4);
-	Delay(10);
-	EEPROM_writeByte(13,35);
-	Delay(10);
+//	
+//	EEPROM_writeByte(9,192);
+//	//Delay(10);
+//	time = 0;
+//	TIM_SetCounter(TIM4, 0);
+//	while (time < 50) time = TIM_GetCounter(TIM4);
+//	EEPROM_writeByte(10,168);
+//	Delay(10);
+//	EEPROM_writeByte(11,1);
+//	Delay(10);
+//	EEPROM_writeByte(12,4);
+//	Delay(10);
+//	EEPROM_writeByte(13,35);
+//	Delay(10);
 	
 	// Set Quantity
 	/*
@@ -178,6 +184,8 @@ int main(void)
 	*/
 	GPIO_ToggleBits(GPIOD, LED_RED);
 	
+	/*Get ID Of Board*/
+	IDBOARD = EEPROM_readByte(8);
 	
 	/* Get Destination IP Address & Port */
 	// IP Address 4 bytes
@@ -233,6 +241,8 @@ int main(void)
 			clear_data(); // Clear Read data
 			set_strlen(0); // Set strlen = 0
 		}
+		
+		
 		
 		if (mode == NONE)
 		{

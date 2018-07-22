@@ -1,5 +1,5 @@
 Dependencies for Project 'Project', Target 'Discover-More': (DO NOT MODIFY !)
-F (..\src\main.c)(0x5B4E1A03)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\main.o --omf_browse .\discover-more\main.crf --depend .\discover-more\main.d)
+F (..\src\main.c)(0x5B535C41)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\main.o --omf_browse .\discover-more\main.crf --depend .\discover-more\main.d)
 I (..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h)(0x520D43D2)
 I (..\inc\stm32f4x7_eth_conf.h)(0x520D43D2)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
@@ -37,7 +37,7 @@ I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x520
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x520D43D2)
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x520D43D2)
 I (..\inc\netconf.h)(0x520D43D2)
-I (..\inc\main.h)(0x5B4B6FCE)
+I (..\inc\main.h)(0x5B535C05)
 I (..\inc\stm32f4x7_eth_bsp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
@@ -139,7 +139,7 @@ I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x520D4
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x520D43D2)
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x520D43D2)
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x520D43D2)
-I (..\inc\main.h)(0x5B4B6FCE)
+I (..\inc\main.h)(0x5B535C05)
 I (..\inc\stm32f4x7_eth_bsp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
@@ -192,7 +192,7 @@ I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/ip_addr.h)(0x520D43D2
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/inet.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/netif.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/icmp.h)(0x520D43D2)
-I (..\inc\main.h)(0x5B4B6FCE)
+I (..\inc\main.h)(0x5B535C05)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
 I (..\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x520D43D2)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588B9154)
@@ -263,7 +263,7 @@ I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/udp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif/etharp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/dhcp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone\ethernetif.h)(0x520D43D2)
-I (..\inc\main.h)(0x5B4B6FCE)
+I (..\inc\main.h)(0x5B535C05)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
 I (..\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x520D43D2)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588B9154)
@@ -351,7 +351,7 @@ I (..\inc\stm32f4x7_eth_bsp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\fonts.h)(0x520D43D2)
-I (..\inc\main.h)(0x5B4B6FCE)
+I (..\inc\main.h)(0x5B535C05)
 I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
@@ -377,7 +377,7 @@ I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/ip_addr.h)(0x520D43D2
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/inet.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip/netif.h)(0x520D43D2)
 I (..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4\lwip/icmp.h)(0x520D43D2)
-F (..\src\function.cpp)(0x5B4E19B3)(--cpp -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\function.o --omf_browse .\discover-more\function.crf --depend .\discover-more\function.d)
+F (..\src\function.cpp)(0x5B535A18)(--cpp -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\function.o --omf_browse .\discover-more\function.crf --depend .\discover-more\function.d)
 I (..\inc\function.h)(0x5B4CBAA6)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
 I (..\..\..\..\Libraries\CMSIS\Include\core_cm4.h)(0x520D43D2)
@@ -419,7 +419,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\AT_Command.h)(0x5B4E19D8)
-I (..\inc\main.h)(0x5B4B6FCE)
+I (..\inc\main.h)(0x5B535C05)
 I (..\inc\stm32f4x7_eth_bsp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
@@ -1283,7 +1283,7 @@ I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x520D4
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x520D43D2)
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x520D43D2)
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x520D43D2)
-I (..\inc\main.h)(0x5B4B6FCE)
+I (..\inc\main.h)(0x5B535C05)
 I (..\inc\stm32f4x7_eth_bsp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
