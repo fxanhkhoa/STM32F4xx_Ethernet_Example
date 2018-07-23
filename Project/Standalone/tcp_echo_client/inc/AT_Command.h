@@ -14,6 +14,8 @@ extern "C" {
 #define OPEN 6
 #define CLEARALL 7
 #define STOREOK 8
+#define GETINFO 9
+#define SETINFO 10
 	
 #include <string.h>
 #include <stdlib.h>

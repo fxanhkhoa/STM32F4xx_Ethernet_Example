@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Discover-More\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Discover-More\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Jul 21 23:16:17 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Jul 24 00:49:06 2018
 <BR><P>
 <H3>Maximum Stack Usage =        476 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -158,6 +158,10 @@ Global Symbols
 
 <P><STRONG><a name="[22a]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
+<P><STRONG><a name="[a7]"></a>Delay</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
 <P><STRONG><a name="[77]"></a>SetQuantity</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = SetQuantity &rArr; EEPROM_writeByte &rArr; EEPROM_readStatus &rArr; SPI_ReadWrite
 </UL>
@@ -167,10 +171,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddNewUser
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[ad]"></a>Delay</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[7b]"></a>Button_State</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, main.o(.text))
@@ -219,24 +219,24 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[65]"></a>main</STRONG> (Thumb, 644 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[65]"></a>main</STRONG> (Thumb, 756 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 452<LI>Call Chain = main &rArr; LwIP_Periodic_Handle &rArr; LwIP_DHCP_Process_Handle &rArr; netif_set_addr &rArr; netif_set_ipaddr &rArr; tcp_abandon &rArr; tcp_pcb_remove &rArr; tcp_output &rArr; tcp_output_segment &rArr; ip_output &rArr; ip_output_if &rArr; ip_frag &rArr; pbuf_alloc &rArr; pbuf_free &rArr; mem_free &rArr; plug_holes
 </UL>
-<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_echoclient_connect
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_strlen
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_tcp_pcb
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_tcp_pcb
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_strlen
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_data
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_data
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetCounter
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenDoor
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenDoor
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LwIP_Pkt_Handle
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LwIP_Periodic_Handle
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LwIP_Init
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetVoidStr
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetOutPutText
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetOutPutText
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetDataByteType
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ToggleBits
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ETH_CheckFrameReceived
@@ -244,15 +244,15 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_writeByte
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_readByte
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307Init
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CloseDoor
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddNewUser
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_LED_BUTTON_Init
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_peripheral
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Button_State
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetQuantity
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
@@ -284,7 +284,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_readByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ID_DEL(char*)
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddNewUser
 </UL>
 
@@ -377,7 +377,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f4xx.o(RESET)
 </UL>
-<P><STRONG><a name="[a9]"></a>get_tcp_pcb</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tcp_echoclient.o(.text))
+<P><STRONG><a name="[aa]"></a>get_tcp_pcb</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tcp_echoclient.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -481,7 +481,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ab]"></a>OpenDoor</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, function.o(.text))
+<P><STRONG><a name="[ac]"></a>OpenDoor</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, function.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -511,7 +511,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new[] (unsigned)
 </UL>
 
-<P><STRONG><a name="[a7]"></a>CheckOpenDoor</STRONG> (Thumb, 342 bytes, Stack size 64 bytes, function.o(.text))
+<P><STRONG><a name="[a8]"></a>CheckOpenDoor</STRONG> (Thumb, 342 bytes, Stack size 64 bytes, function.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = CheckOpenDoor &rArr; DS1307ReadTime &rArr; I2C_GetFlagStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307ReadTime
@@ -523,7 +523,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ac]"></a>GetOutPutText</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, function.o(.text))
+<P><STRONG><a name="[ad]"></a>GetOutPutText</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, function.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -622,7 +622,7 @@ Global Symbols
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_ReadWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ID_DEL(char*)
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetQuantity
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -703,8 +703,8 @@ Global Symbols
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_AcknowledgeConfig
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
 </UL>
 
 <P><STRONG><a name="[10d]"></a>DS1307SetTime</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, ds1307.o(.text), UNUSED)
@@ -718,7 +718,7 @@ Global Symbols
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_AcknowledgeConfig
 </UL>
 
-<P><STRONG><a name="[a8]"></a>DS1307GetTimeString</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, ds1307.o(.text))
+<P><STRONG><a name="[a9]"></a>DS1307GetTimeString</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, ds1307.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = DS1307GetTimeString &rArr; DS1307ReadTime &rArr; I2C_GetFlagStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307ReadTime
@@ -1322,7 +1322,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_toggle
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ETH_GPIO_Config
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STM32f4_Discovery_LCD_Init
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenDoor
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenDoor
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_writeByte
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_readByte
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_peripheral
@@ -3004,7 +3004,7 @@ Global Symbols
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_connect
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
 <LI><a href="#[1d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_listen_input
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_send_ctrl
 </UL>
@@ -3017,7 +3017,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_close
 </UL>
 
-<P><STRONG><a name="[aa]"></a>tcp_write</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, tcp_out.o(.text))
+<P><STRONG><a name="[ab]"></a>tcp_write</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, tcp_out.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = tcp_write &rArr; tcp_enqueue &rArr; pbuf_alloc &rArr; pbuf_free &rArr; mem_free &rArr; plug_holes
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_enqueue
@@ -3862,7 +3862,7 @@ Global Symbols
 <P><STRONG><a name="[f1]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307ReadTime
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pbuf_take
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ip_reass_enqueue_new_datagram
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ip_reass_free_complete_datagram
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ip_reass
@@ -3876,7 +3876,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10e]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
 </UL>
 
 <P><STRONG><a name="[36c]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
@@ -3914,7 +3914,7 @@ Global Symbols
 <P><STRONG><a name="[f2]"></a>strstr</STRONG> (Thumb, 36 bytes, Stack size 12 bytes, strstr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strstr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckOpenDoor
 </UL>
 
 <P><STRONG><a name="[c4]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
@@ -3940,7 +3940,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS1307GetTimeString
 </UL>
 
 <P><STRONG><a name="[131]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text), UNUSED)
@@ -4193,7 +4193,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pbuf_ref
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pbuf_free
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_echoclient_recv
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_echoclient_sent
@@ -4222,7 +4222,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_recved
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pbuf_free
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_echoclient_send
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tcp_echoclient.o(.text)
 </UL>

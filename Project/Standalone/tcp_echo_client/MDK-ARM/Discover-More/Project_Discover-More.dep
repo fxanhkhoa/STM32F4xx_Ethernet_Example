@@ -1,5 +1,5 @@
 Dependencies for Project 'Project', Target 'Discover-More': (DO NOT MODIFY !)
-F (..\src\main.c)(0x5B535C41)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\main.o --omf_browse .\discover-more\main.crf --depend .\discover-more\main.d)
+F (..\src\main.c)(0x5B561502)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\main.o --omf_browse .\discover-more\main.crf --depend .\discover-more\main.d)
 I (..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h)(0x520D43D2)
 I (..\inc\stm32f4x7_eth_conf.h)(0x520D43D2)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
@@ -45,7 +45,7 @@ I (..\..\..\..\Utilities\STM32F4-Discovery\fonts.h)(0x520D43D2)
 I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
 I (..\inc\function.h)(0x5B4CBAA6)
@@ -147,7 +147,7 @@ I (..\..\..\..\Utilities\STM32F4-Discovery\fonts.h)(0x520D43D2)
 I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
 I (..\inc\function.h)(0x5B4CBAA6)
@@ -233,7 +233,7 @@ I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\fonts.h)(0x520D43D2)
 I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
 I (..\inc\function.h)(0x5B4CBAA6)
@@ -304,7 +304,7 @@ I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\fonts.h)(0x520D43D2)
 I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
 I (..\inc\function.h)(0x5B4CBAA6)
@@ -355,7 +355,7 @@ I (..\inc\main.h)(0x5B535C05)
 I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
 I (..\inc\function.h)(0x5B4CBAA6)
@@ -418,7 +418,7 @@ I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (..\inc\main.h)(0x5B535C05)
 I (..\inc\stm32f4x7_eth_bsp.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery.h)(0x520D43D2)
@@ -479,7 +479,7 @@ I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x520
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x520D43D2)
 I (..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x520D43D2)
 F (..\src\AT_Command.cpp)(0x5B4A0A2B)(--cpp -c --cpu Cortex-M4 -D__MICROLIB -g -O1 --apcs=interwork -I ..\ -I ..\..\..\..\Libraries\CMSIS\Include -I ..\..\..\..\Libraries\STM32F4x7_ETH_Driver\inc -I ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\..\..\Utilities\STM32F4-Discovery -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7 -I ..\..\..\..\Utilities\lwip_v1.3.2\port\STM32F4x7\Standalone -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\ipv4 -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\lwip -I ..\..\..\..\Utilities\lwip_v1.3.2\src\include\netif -I ..\inc -I ..\src-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="524" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\discover-more\at_command.o --omf_browse .\discover-more\at_command.crf --depend .\discover-more\at_command.d)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
 I (C:\Keil_v5\ARM\INC\ST\STM32F4xx\stm32f4xx.h)(0x5A07D6D7)
@@ -1290,7 +1290,7 @@ I (..\..\..\..\Utilities\STM32F4-Discovery\stm32f4_discovery_lcd.h)(0x520D43D2)
 I (..\..\..\..\Utilities\STM32F4-Discovery\fonts.h)(0x520D43D2)
 I (..\inc\U_Print.h)(0x59AF754D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B9154)
-I (..\inc\AT_Command.h)(0x5B4E19D8)
+I (..\inc\AT_Command.h)(0x5B56025F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B9154)
 I (..\inc\25lc256.h)(0x59FC1272)
 I (..\inc\function.h)(0x5B4CBAA6)

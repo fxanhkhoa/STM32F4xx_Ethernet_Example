@@ -201,42 +201,37 @@
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>RFID,0x0A</ItemText>
+          <ItemText>s[6],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>hourTo,0x0A</ItemText>
+          <ItemText>IDBOARD,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>hour,0x0A</ItemText>
+          <ItemText>str[2],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>minuteFrom,0x0A</ItemText>
+          <ItemText>str[3],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>minuteTo,0x0A</ItemText>
+          <ItemText>str[4],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>minute</ItemText>
+          <ItemText>str[5],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>s[6],0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>8</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>IDBOARD,0x0A</ItemText>
+          <ItemText>str[6],0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

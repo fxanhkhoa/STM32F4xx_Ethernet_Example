@@ -121,10 +121,10 @@ int main(void)
 	DS1307Init();
 	Init_peripheral();
 	
-	EEPROM_writeByte(8,1);
-	time = 0;
-	TIM_SetCounter(TIM4, 0);
-	while (time < 50) time = TIM_GetCounter(TIM4);
+//	EEPROM_writeByte(8,1);
+//	time = 0;
+//	TIM_SetCounter(TIM4, 0);
+//	while (time < 50) time = TIM_GetCounter(TIM4);
 //	
 //	EEPROM_writeByte(9,192);
 //	//Delay(10);
@@ -242,54 +242,79 @@ int main(void)
 			set_strlen(0); // Set strlen = 0
 		}
 		
-		
-		
-		if (mode == NONE)
+		if (str[0] == IDBOARD)
 		{
-			
-		}
-		/* Check RFID, Time, Door */
-		else if (mode == IDCHECK)
-		{
-			mode = CheckOpenDoor(voidStr);
-		}
-		else if (mode == DS1307)
-		{
-			GPIO_ToggleBits(GPIOD,GPIO_Pin_13);
-			stime= DS1307GetTimeString();
-			tcp_write(get_tcp_pcb(), stime, 20, 1);
-			mode = NONE;
-		}
-		else if (mode == OPEN)
-		{
-			if (str[6] == 1)
-				OpenDoor(0);
-			else if (str[6] == 2)
-				OpenDoor(1);
-			else if (str[6] == 3)
-				OpenDoor(2);
-			else if (str[6] == 4)
-				OpenDoor(3);
-			
-			tcp_write(get_tcp_pcb(), GetOutPutText(), 12, 1);
-			
-			Delay(5000);
-			CloseDoor(0);
-			CloseDoor(1);
-			CloseDoor(2);
-			CloseDoor(3);
-			mode = NONE;
-		}
-		else if (mode == IDADD)
-		{
-			AddNewUser(voidStr);
-			str[1] = STOREOK;
-			tcp_write(get_tcp_pcb(), str, 12, 1);
-			mode = NONE;
-		}
-		else if (mode == CLEARALL)
-		{
-			SetQuantity(0);
+			if (mode == NONE)
+			{
+				
+			}
+			/* Check RFID, Time, Door */
+			else if (mode == IDCHECK)
+			{
+				mode = CheckOpenDoor(voidStr);
+			}
+			else if (mode == DS1307)
+			{
+				GPIO_ToggleBits(GPIOD,GPIO_Pin_13);
+				stime= DS1307GetTimeString();
+				tcp_write(get_tcp_pcb(), stime, 20, 1);
+				mode = NONE;
+			}
+			else if (mode == OPEN)
+			{
+				if (str[6] == 1)
+					OpenDoor(0);
+				else if (str[6] == 2)
+					OpenDoor(1);
+				else if (str[6] == 3)
+					OpenDoor(2);
+				else if (str[6] == 4)
+					OpenDoor(3);
+				
+				tcp_write(get_tcp_pcb(), GetOutPutText(), 12, 1);
+				
+				Delay(5000);
+				CloseDoor(0);
+				CloseDoor(1);
+				CloseDoor(2);
+				CloseDoor(3);
+				mode = NONE;
+			}
+			else if (mode == IDADD)
+			{
+				AddNewUser(voidStr);
+				str[1] = STOREOK;
+				tcp_write(get_tcp_pcb(), str, 12, 1);
+				mode = NONE;
+			}
+			else if (mode == CLEARALL)
+			{
+				SetQuantity(0);
+			}
+			else if (mode == GETINFO)
+			{
+				str[2] = DEST_IP_ADDR0;
+				str[3] = DEST_IP_ADDR1;
+				str[4] = DEST_IP_ADDR2;
+				str[5] = DEST_IP_ADDR3;
+				str[6] = DEST_PORT;
+				tcp_write(get_tcp_pcb(), str, 12, 1);
+			}
+			else if (mode == SETINFO)
+			{
+				EEPROM_writeByte(9,str[2]);
+				Delay(10);
+				EEPROM_writeByte(10,str[3]);
+				Delay(10);
+				EEPROM_writeByte(11,str[4]);
+				Delay(10);
+				EEPROM_writeByte(12,str[5]);
+				Delay(10);
+				EEPROM_writeByte(13,str[6]);
+				Delay(10);
+				EEPROM_writeByte(8,str[7]);
+				Delay(10);
+			}
 		}
   }   
 }
