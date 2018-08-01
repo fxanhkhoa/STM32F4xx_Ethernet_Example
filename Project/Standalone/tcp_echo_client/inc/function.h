@@ -18,7 +18,7 @@ extern "C" {
 
 	
 #define NUMBER_OF_BLOCK 10 // 12Byte
-#define START_OF_RFID_USER 16
+#define START_OF_RFID_USER 20
 	
 extern uint32_t time;
 	
@@ -34,6 +34,10 @@ uint8_t CheckOpenDoor(char *s);
 void ID_DEL(unsigned char *ID_IN);
 int AddNewUser(unsigned char *s);
 unsigned char *GetOutPutText();
+
+uint8_t GetQuantityNewCard(void);
+void SetQuantityNewCard(uint8_t number);
+uint8_t* GetRFID(uint16_t index);
 	
 #ifdef __cplusplus
 }

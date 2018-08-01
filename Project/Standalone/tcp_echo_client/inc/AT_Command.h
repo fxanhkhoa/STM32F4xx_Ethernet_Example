@@ -16,6 +16,7 @@ extern "C" {
 #define STOREOK 8
 #define GETINFO 9
 #define SETINFO 10
+#define GETALLRFID 11
 	
 #include <string.h>
 #include <stdlib.h>

@@ -230,7 +230,7 @@ static err_t tcp_echoclient_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
 	strDataByteType = (u8_t*)tempPtr;
 	str_len = p->len;
 	
-	tcp_write(tpcb, str_data, str_len, 1);
+	//tcp_write(tpcb, str_data, str_len, 1);
   Tcp_flag = 0;
   /* if we receive an empty tcp frame from server => close connection */
   if (p == NULL) {

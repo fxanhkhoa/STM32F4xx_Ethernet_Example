@@ -77,6 +77,8 @@ char _read = 1;
 uint8_t mode = NONE;
 uint16_t number;
 uint16_t quantity = 0;
+unsigned char *strUart;
+char position = 0;
 
 char Conn_use = 0;
 
@@ -101,6 +103,7 @@ int main(void)
      */
   /* Variables */
 	char *stime = malloc(sizeof(char) * 20);
+	strUart = malloc(sizeof(char) * 12);
 	unsigned char *str = malloc(sizeof(char) * 12);
 	uint8_t *strByte = malloc(sizeof(uint8_t) * 12);
 	uint8_t i;
@@ -201,6 +204,7 @@ int main(void)
 	quantity = (EEPROM_readByte(14) << 8) | (EEPROM_readByte(15));
 	//DS1307SetTime();
 	
+	
   /* Infinite loop */
 	TIM_SetCounter(TIM4, 0);
 	flag_connected = 0;
@@ -229,12 +233,16 @@ int main(void)
 			//tcp_write(get_tcp_pcb(), "aaaa", 4, 1);
     }
 		
+		if ((position >= 12))
+		{
+			//strcpy(str, strUart); // copy data to str
+			mode = strUart[1];
+		}
 		
-		strcpy(str,get_data()); // copy data to str
-		str[get_strlen()] = '\0';
 		// Get AT Mode
 		if (get_strlen() > 0)
 		{
+			strcpy(str,get_data()); // copy data to str
 			voidStr = GetVoidStr();
 			strByte = GetDataByteType();
 			mode = str[1];
@@ -242,7 +250,7 @@ int main(void)
 			set_strlen(0); // Set strlen = 0
 		}
 		
-		if (str[0] == IDBOARD)
+		if ((str[0] == IDBOARD) || (strUart[0] == IDBOARD))
 		{
 			if (mode == NONE)
 			{
@@ -251,7 +259,13 @@ int main(void)
 			/* Check RFID, Time, Door */
 			else if (mode == IDCHECK)
 			{
-				mode = CheckOpenDoor(voidStr);
+				if (position >= 12)
+				{
+					mode = CheckOpenDoor(strUart);
+					position = 0;
+				}
+				else
+					mode = CheckOpenDoor(voidStr);
 			}
 			else if (mode == DS1307)
 			{
@@ -290,6 +304,8 @@ int main(void)
 			else if (mode == CLEARALL)
 			{
 				SetQuantity(0);
+				tcp_write(get_tcp_pcb(), str, 12, 1);
+				mode = NONE;
 			}
 			else if (mode == GETINFO)
 			{
@@ -299,6 +315,8 @@ int main(void)
 				str[5] = DEST_IP_ADDR3;
 				str[6] = DEST_PORT;
 				tcp_write(get_tcp_pcb(), str, 12, 1);
+				
+				mode = NONE;
 			}
 			else if (mode == SETINFO)
 			{
@@ -314,6 +332,28 @@ int main(void)
 				Delay(10);
 				EEPROM_writeByte(8,str[7]);
 				Delay(10);
+				
+				mode = NONE;
+			}
+			else if (mode == SETDS1307)
+			{
+				mode = NONE;
+			}
+			else if (mode == GETALLRFID)
+			{
+				for (i = 0; i < quantity; i++)
+				{
+					unsigned char *tempRFID = malloc(sizeof(char) * 4);
+					tempRFID = GetRFID(i);
+					str[0] = IDBOARD;
+					str[1] = GETALLRFID;
+					str[2] = tempRFID[0];
+					str[3] = tempRFID[1];
+					str[4] = tempRFID[2];
+					str[5] = tempRFID[3];
+					tcp_write(get_tcp_pcb(), str, 12, 1);
+				}
+				mode = NONE;
 			}
 		}
   }   
@@ -495,17 +535,17 @@ uint16_t GetQuantity(void)
 void SetQuantity(uint16_t number) 
 {
 	quantity = number;
-	EEPROM_writeByte(14, (uint8_t) number >> 8);
+	EEPROM_writeByte(14, (uint8_t) (number >> 8));
 	time = 0;
 	TIM_SetCounter(TIM4, 0);
 	while (time < 50) time = TIM_GetCounter(TIM4);
-	//Delay(1);
+	Delay(1);
 	
-	EEPROM_writeByte(15, (uint8_t) number & 0x00FF);
+	EEPROM_writeByte(15, (uint8_t) (number & 0x00FF));
 	time = 0;
 	TIM_SetCounter(TIM4, 0);
 	while (time < 50) time = TIM_GetCounter(TIM4);
-	//Delay(1);
+	Delay(1);
 }
 
 void USART1_IRQHandler(void)
@@ -522,8 +562,9 @@ void USART2_IRQHandler(void)
 	// check if the USART1 receive interrupt flag was set
 	if( USART_GetITStatus(USART2, USART_IT_RXNE) )
 		{
-			GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
-			
+			GPIO_ToggleBits(GPIOD, LED_GREEN);
+			strUart[position] = (uint8_t)USART_ReceiveData(USART2);
+			position++;
 		}
 }
 
