@@ -276,13 +276,13 @@ int main(void)
 			}
 			else if (mode == OPEN)
 			{
-				if (str[6] == 1)
+				if ((str[6] == 1) || (strUart[6] == 1))
 					OpenDoor(0);
-				else if (str[6] == 2)
+				else if ((str[6] == 2) || (strUart[6] == 2))
 					OpenDoor(1);
-				else if (str[6] == 3)
+				else if ((str[6] == 3) || (strUart[6] == 3))
 					OpenDoor(2);
-				else if (str[6] == 4)
+				else if ((str[6] == 4) || (strUart[6] == 4))
 					OpenDoor(3);
 				
 				tcp_write(get_tcp_pcb(), GetOutPutText(), 12, 1);
@@ -538,13 +538,13 @@ void SetQuantity(uint16_t number)
 	EEPROM_writeByte(14, (uint8_t) (number >> 8));
 	time = 0;
 	TIM_SetCounter(TIM4, 0);
-	while (time < 50) time = TIM_GetCounter(TIM4);
+	while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 	Delay(1);
 	
 	EEPROM_writeByte(15, (uint8_t) (number & 0x00FF));
 	time = 0;
 	TIM_SetCounter(TIM4, 0);
-	while (time < 50) time = TIM_GetCounter(TIM4);
+	while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 	Delay(1);
 }
 

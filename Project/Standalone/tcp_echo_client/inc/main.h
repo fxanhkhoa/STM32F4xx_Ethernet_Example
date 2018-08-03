@@ -116,6 +116,8 @@
 #define LED_RED											GPIO_Pin_14
 #define LED_BLUE										GPIO_Pin_15
 
+#define DELAY_TIME_EEPROM			100
+
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */  

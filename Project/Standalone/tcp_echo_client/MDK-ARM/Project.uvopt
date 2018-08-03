@@ -222,12 +222,12 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>*s</ItemText>
+          <ItemText>tempS[6]</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>j</ItemText>
+          <ItemText>day</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
@@ -263,6 +263,11 @@
           <count>10</count>
           <WinNumber>1</WinNumber>
           <ItemText>tempRFID[0]</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>strUart[6]</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

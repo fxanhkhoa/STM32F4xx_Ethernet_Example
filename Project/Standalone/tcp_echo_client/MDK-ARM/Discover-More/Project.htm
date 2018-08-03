@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Discover-More\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Discover-More\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Aug 02 02:08:18 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Aug 04 00:32:18 2018
 <BR><P>
 <H3>Maximum Stack Usage =        476 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -222,7 +222,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[65]"></a>main</STRONG> (Thumb, 974 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[65]"></a>main</STRONG> (Thumb, 998 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 452<LI>Call Chain = main &rArr; LwIP_Periodic_Handle &rArr; LwIP_DHCP_Process_Handle &rArr; netif_set_addr &rArr; netif_set_ipaddr &rArr; tcp_abandon &rArr; tcp_pcb_remove &rArr; tcp_output &rArr; tcp_output_segment &rArr; ip_output &rArr; ip_output_if &rArr; ip_frag &rArr; pbuf_alloc &rArr; pbuf_free &rArr; mem_free &rArr; plug_holes
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tcp_write
@@ -516,7 +516,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new[] (unsigned)
 </UL>
 
-<P><STRONG><a name="[a8]"></a>CheckOpenDoor</STRONG> (Thumb, 582 bytes, Stack size 72 bytes, function.o(.text))
+<P><STRONG><a name="[a8]"></a>CheckOpenDoor</STRONG> (Thumb, 584 bytes, Stack size 72 bytes, function.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = CheckOpenDoor &rArr; SetQuantity &rArr; EEPROM_writeByte &rArr; EEPROM_readStatus &rArr; SPI_ReadWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
@@ -544,7 +544,7 @@ Global Symbols
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 
-<P><STRONG><a name="[af]"></a>AddNewUser</STRONG> (Thumb, 500 bytes, Stack size 32 bytes, function.o(.text))
+<P><STRONG><a name="[af]"></a>AddNewUser</STRONG> (Thumb, 498 bytes, Stack size 32 bytes, function.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = AddNewUser &rArr; SetQuantity &rArr; EEPROM_writeByte &rArr; EEPROM_readStatus &rArr; SPI_ReadWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter

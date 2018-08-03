@@ -1,7 +1,7 @@
 #include "function.h"
 
 //private variables
-unsigned char outPutText[30];
+unsigned char outPutText[12];
 DATE_TYPE timeNow;
 
 /*
@@ -143,6 +143,7 @@ uint8_t CheckOpenDoor(char *s)
 	char RFID[6];
 	uint8_t hourFrom, hourTo;
 	uint8_t minuteFrom, minuteTo;
+	uint8_t day;
 	uint16_t quantity = GetQuantity();
 	outPutText[0] = '\0';
 	for (j = 0; j < quantity; j++)
@@ -170,8 +171,10 @@ uint8_t CheckOpenDoor(char *s)
 		hourTo = EEPROM_readByte(START_OF_RFID_USER + j*NUMBER_OF_BLOCK + 8); // hour to
 		minuteTo = EEPROM_readByte(START_OF_RFID_USER + j*NUMBER_OF_BLOCK + 9); // minute to
 		
+		
 		//Check Day 
-		if (((RFID[5] >> tempS[7]) & 0x01) != 1)
+		day = timeNow.dayOfWeek;
+		if (((RFID[5] >> day) & 0x01) != 1)
 		{
 			mode_temp = 0;
 		}
@@ -259,22 +262,22 @@ uint8_t CheckOpenDoor(char *s)
 		EEPROM_writeByte(START_OF_RFID_USER + quantity * NUMBER_OF_BLOCK + 0, *s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity * NUMBER_OF_BLOCK + 1, *s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity * NUMBER_OF_BLOCK + 2, *s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity * NUMBER_OF_BLOCK + 3, *s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		SetQuantity(quantity);
 	}
 	/*
@@ -332,28 +335,28 @@ int AddNewUser(unsigned char *s)
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 0, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 1, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 2, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 3, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
@@ -361,7 +364,7 @@ int AddNewUser(unsigned char *s)
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 4, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
@@ -369,7 +372,7 @@ int AddNewUser(unsigned char *s)
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 5, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
@@ -377,28 +380,28 @@ int AddNewUser(unsigned char *s)
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 6, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 7, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 8, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		*s++;
 		EEPROM_writeByte(START_OF_RFID_USER + quantity*NUMBER_OF_BLOCK + 9, (uint8_t)*s);
 		time = 0;
 		TIM_SetCounter(TIM4, 0);
-		while (time < 50) time = TIM_GetCounter(TIM4);
+		while (time < DELAY_TIME_EEPROM) time = TIM_GetCounter(TIM4);
 		//Delay(1);
 		
 		// Set Quantity + 1
